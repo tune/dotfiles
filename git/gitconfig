@@ -1,0 +1,8 @@
+[user]
+	name = Yuichi TSUNEMATSU
+	email = yuichi@tsunematsu.cc
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
