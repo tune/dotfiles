@@ -1,9 +1,9 @@
-# 使い方
+# 菴ｿ縺�譁ｹ
 
     $ git clone git://github.com/tune/dotfiles.git
     $ ./dotfiles/setup.sh
 
-# 設定ファイル
+# 險ｭ螳壹ヵ繧｡繧､繝ｫ
 
 * git
 * screen
