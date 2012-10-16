@@ -5,6 +5,7 @@
 
 # 設定ファイル
 
+* bash
 * irb
 * git
 * screen
