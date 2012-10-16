@@ -1,0 +1,212 @@
+" Vundle Setting
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" Edit {{{
+  " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
+  Bundle 'scrooloose/nerdcommenter.git'
+
+  " -- でメソッドチェーン整形
+  Bundle 'c9s/cascading.vim'
+
+  " visually indent guide
+  Bundle 'nathanaelkane/vim-indent-guides'
+
+  " XMLとかHTMLとかの編集機能を強化する
+  Bundle 'xmledit'
+
+  " Align : 高機能整形・桁揃えプラグイン
+  Bundle 'Align'
+
+  " フィルタリングと整形
+  Bundle 'godlygeek/tabular'
+
+  " マルチバイト対応の整形
+  Bundle 'h1mesuke/vim-alignta'
+
+  " YankRing.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
+  Bundle 'YankRing.vim'
+
+  " surround.vim : テキストを括弧で囲む／削除する
+  Bundle 'tpope/vim-surround'
+
+  " smartchr.vim : ==などの前後を整形
+  Bundle 'smartchr'
+
+  " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
+  Bundle 'textobj-user'
+
+  " vim-textobj-syntax : syntax hilightされたものをtext-objectに
+  Bundle 'kana/vim-textobj-syntax.git'
+
+  " vim-textobj-plugins : いろんなものをtext-objectにする
+  Bundle 'thinca/vim-textobj-plugins.git'
+
+  " vim-textobj-lastpat : 最後に検索されたパターンをtext-objectに
+  Bundle 'kana/vim-textobj-lastpat.git'
+
+  " vim-textobj-indent : インデントされたものをtext-objectに
+  Bundle 'kana/vim-textobj-indent.git'
+
+  " vim-textobj-function : 関数の中身をtext-objectに
+  Bundle 'kana/vim-textobj-function.git'
+
+  " vim-textobj-fold : 折りたたまれたアレをtext-objectに
+  " Bundle 'kana/vim-textobj-fold.git'
+  Bundle 'textobj-rubyblock'
+
+  " vim-textobj-entire : buffer全体をtext-objectに
+  Bundle 'textobj-entire'
+
+  " 「foo」 or 【bar】などをtext-objectに
+  Bundle 'textobj-jabraces'
+
+  " <C-a>でtrue/false切替。他色々
+  Bundle 'taku-o/vim-toggle'
+
+" }}}
+
+" Completion {{{
+  " 補完 neocomplcache.vim : 究極のVim的補完環境
+  Bundle 'Shougo/neocomplcache'
+
+  " neocomplcacheのsinpet補完
+  Bundle 'Shougo/neocomplcache-snippets-complete'
+" }}}
+
+" Searching/Moving{{{
+  " smooth_scroll.vim : スクロールを賢く
+  Bundle 'Smooth-Scroll'
+
+  " vim-smartword : 単語移動がスマートな感じで
+  Bundle 'smartword'
+
+  " camelcasemotion : CamelCaseやsnake_case単位でのワード移動
+  Bundle 'camelcasemotion'
+
+  " <Leader><Leader>w/fなどで、motion先をhilightする
+  Bundle 'EasyMotion'
+
+  " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
+  Bundle 'matchit.zip'
+
+  " ruby用のmatchit拡張
+  Bundle 'ruby-matchit'
+
+  " grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
+  Bundle 'grep.vim'
+
+  " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
+  Bundle 'eregex.vim'
+
+  " open-browser.vim : カーソルの下のURLを開くor単語を検索エンジンで検索
+  Bundle 'tyru/open-browser.vim'
+
+" }}}
+
+" Programming {{{
+  " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
+  Bundle 'thinca/vim-quickrun'
+
+  " perldocやphpmanual等のリファレンスをvim上で見る
+  Bundle 'thinca/vim-ref'
+
+  " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
+  Bundle 'vim-ruby/vim-ruby'
+
+" }}}
+
+" Syntax {{{
+  " markdown
+  Bundle 'tpope/vim-markdown'
+
+  " python
+  Bundle 'yuroyoro/vim-python'
+
+  " scala
+  Bundle 'yuroyoro/vim-scala'
+
+  " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
+  Bundle 'scrooloose/syntastic'
+" }}}
+
+" Buffer {{{
+  " minibufexpl.vim : タブエディタ風にバッファ管理ウィンドウを表示
+  Bundle 'minibufexpl.vim'
+
+  " NERDTree : ツリー型エクスプローラ
+  Bundle 'The-NERD-tree'
+
+  " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
+  Bundle 'vtreeexplorer'
+" }}}
+
+
+" Encording {{{
+  Bundle 'banyan/recognize_charcode.vim'
+" }}}
+
+" Utility {{{
+  " vimshell : vimのshell
+  Bundle 'Shougo/vimshell.git'
+
+  " vimproc : vimから非同期実行。vimshelleで必要
+  Bundle 'Shougo/vimproc.git'
+
+  " vim-altercmd : Ex command拡張
+  Bundle 'tyru/vim-altercmd'
+
+  " vim Interface to Web API
+  Bundle 'mattn/webapi-vim'
+
+  " cecutil.vim : 他のpluginのためのutillity1
+  Bundle 'cecutil'
+
+  " urilib.vim : vim scriptからURLを扱うライブラリ
+  Bundle 'tyru/urilib.vim'
+
+  " utillity
+  Bundle 'L9'
+
+  " Buffer管理のLibrary
+  Bundle 'thinca/vim-openbuf'
+
+  " vimdoc 日本語
+  Bundle 'yuroyoro/vimdoc_ja'
+
+  " vimからGit操作する
+  Bundle 'tpope/vim-fugitive'
+
+  " ステータスラインをカッコよくする
+  Bundle 'Lokaltog/vim-powerline'
+
+" }}}
+
+" ColorSchema{{{{
+  " color schema 256
+  Bundle 'github.vim'
+  Bundle 'molokai.vim'
+  Bundle 'pyte.vim'
+  Bundle 'altercation/solarized'
+" }}}
+
+" Unite {{{{
+  " unite.vim : - すべてを破壊し、すべてを繋げ - vim scriptで実装されたanythingプラグイン
+  Bundle 'Shougo/unite.vim'
+  Bundle 'tsukkee/unite-help'
+  Bundle 'h1mesuke/unite-outline'
+  Bundle 'basyura/unite-rails'
+  Bundle 'thinca/vim-unite-history'
+  Bundle 'tsukkee/unite-tag'
+  Bundle 'choplin/unite-vim_hacks'
+
+" }}}
+"
+filetype plugin indent on
