@@ -5,7 +5,6 @@
 
 # 設定ファイル
 
-* irb
 * git
 * screen
 * vim
