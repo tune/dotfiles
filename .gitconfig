@@ -8,4 +8,4 @@
 	interactive = auto
 	grep = auto
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.global_ignore
