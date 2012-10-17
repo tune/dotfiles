@@ -8,6 +8,9 @@
 	interactive = auto
 	grep = auto
 [core]
+	editor = vim
 	excludesfile = ~/.global_ignore
 [push]
 	default = upstream
+[grep]
+	lineNumber = true
