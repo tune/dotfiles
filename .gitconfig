@@ -9,3 +9,5 @@
 	grep = auto
 [core]
 	excludesfile = ~/.global_ignore
+[push]
+	default = upstream
