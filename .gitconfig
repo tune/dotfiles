@@ -14,3 +14,5 @@
 	default = upstream
 [grep]
 	lineNumber = true
+[alias]
+	cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
