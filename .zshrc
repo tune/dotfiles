@@ -109,60 +109,13 @@ fi
 #====================================================================
 # Completion
 #====================================================================
-autoload -U compinit;compinit -u
-autoload zmv
+# zsh-completionsを利用する Github => zsh-completions  
+fpath=(~/dotfiles/zsh/zsh-completions $fpath)
 
-zstyle ':completion:*' groupname ''
-zstyle ':completion:*:descriptions' format '%d'
-zstyle ':completion:*:options' verbose yes
-zstyle ':completion:*:values' verbose yes
-zstyle ':completion:*:options' prefix-needed yes
-zstyle ':completion:*:default' menu select=1
-zstyle ':completion:*' verbose yes
-zstyle ':completion:*:descriptions' format '%B%d%b'
-zstyle ':completion:*:messages' format '%d'
-zstyle ':completion:*:warnings' format '%B------> No matches for: %d%b'
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:(ssh|scp):*' hosts $hosts
-zstyle ':completion:*:(ssh|scp):*' users $users
-zstyle ':completion:*' matcher-list \
-                                       '' \
-                               'm:{a-z}={A-Z}' \
-       'l:|=* r:|[.,_-]=* r:|=* m:{a-z}={A-Z}'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
-
-zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
-zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-
-compctl -/ {c,push,pop}d
-compctl -a {,un}alias
-compctl -b bindkey
-compctl -c exec
-compctl -c man
-compctl -c sudo
-compctl -c {where,which}
-compctl -E printenv
-compctl -E {,un}setenv
-compctl -g '*.(ps|eps)' gv
-compctl -j fg
-compctl -j kill
-compctl -o {,un}setopt
-compctl -u chown
-compctl -v export
-compctl -v unset
-compctl -v vared
-
-compctl -x 'p[1,1] S[]' -k "(czf tzf xzf)" \
- - 'p[2,2] C[-1,[tx]zf]' -g '*.(tar.gz|tgz) *(-/)' \
- - 'p[2,2] C[-1,[tx]f]' -g '*.tar *(-/)' \
- - 'p[2,2] c[-1,czf]' -g '*(-/)' -S '.tar.gz ' \
- - 'p[2,2] c[-1,cf]' -g '*(-/)' -S '.tar ' \
- - 'p[3,3] C[-2,c*f]' -g '*(-/)' -- \
- + tar
+autoload -U compinit; compinit
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
+                             /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin \
+                             /usr/local/git/bin
 
 #====================================================================
 # Key Bind
