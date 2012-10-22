@@ -3,13 +3,45 @@
 #====================================================================
 # Settig Environment Variable
 #====================================================================
+# 重複したパスを登録しない。
+typeset -U path
+
+# (N-/): 存在しないディレクトリは登録しない。
+#    パス(...): ...という条件にマッチするパスのみ残す。
+#            N: NULL_GLOBオプションを設定。
+#               globがマッチしなかったり存在しないパスを無視する。
+#            -: シンボリックリンク先のパスを評価。
+#            /: ディレクトリのみ残す。
 path=(
-       /bin /sbin
-       /usr/bin /usr/sbin
-       /usr/local/bin /usr/local/sbin
-       /usr/X11R6/bin
-       /opt/local/bin /opt/local/sbin
+       /bin(N-/)
+       /usr/bin(N-/)
+       /usr/local/bin(N-/)
+       /usr/X11R6/bin(N-/)
+       /opt/local/bin(N-/)
+       $HOME/dotfiles/bin/*(N-/)
 )
+
+# sudo時のパスの設定
+# -x: export SUDO_PATHも一緒に行う。
+# -T: SUDO_PATHとsudo_pathを連動する。
+typeset -xT SUDO_PATH sudo_path
+
+# 重複したパスを登録しない。
+typeset -U sudo_path
+
+# (N-/): 存在しないディレクトリは登録しない。
+#    パス(...): ...という条件にマッチするパスのみ残す。
+#            N: NULL_GLOBオプションを設定。
+#               globがマッチしなかったり存在しないパスを無視する。
+#            -: シンボリックリンク先のパスを評価。
+#            /: ディレクトリのみ残す。
+sudo_path=(
+       /sbin(N-/)
+       /usr/sbin(N-/)
+       /usr/local/sbin(N-/)
+       /opt/local/sbin(N-/)
+)
+
 export MANPATH=/opt/local/man:$MANPATH
 export LANG=ja_JP.UTF-8
 export HISTFILE=$HOME/.zhistory
