@@ -1,7 +1,10 @@
 # 使い方
 
     $ git clone git://github.com/tune/dotfiles.git
-    $ ./dotfiles/setup.sh
+    $ cd dotfiles
+    $ git submodule init
+    $ git submodule update
+    $ ./setup.sh
 
 # 設定ファイル
 
