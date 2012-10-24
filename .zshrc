@@ -125,18 +125,139 @@ bindkey '^o^_' reverse-menu-complete
 #====================================================================
 # Setting Prompt
 #====================================================================
-PROMPT=$'%{\e]0;%n@%M:%~\a%}%S%B%n@%m%b%s%# '
-RPROMPT='[%~]%*'
+## Default shell configuration
+# colors enables us to idenfity color by $fg[red].
+autoload colors
+colors
+case ${UID} in
+0)
+    PROMPT="%B%{${fg[red]}%}%/#%{${reset_color}%}%b "
+    PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
+    SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
+    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
+        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
+    ;;
+*)
+    #
+    # Color
+    #
+    DEFAULT=$'%{\e[1;0m%}'
+    RESET="%{${reset_color}%}"
+    GREEN="%{${fg[green]}%}"
+    BLUE="%{${fg[blue]}%}"
+    RED="%{${fg[red]}%}"
+    CYAN="%{${fg[cyan]}%}"
+    WHITE="%{${fg[white]}%}"
 
-if [ "$TERM" = "screen" ]; then
- preexec() {
-   # see [zsh-workers:13180]
-   # http://www.zsh.org/mla/workers/2000/msg03993.html
-   emulate -L zsh
-   local -a cmd; cmd=(${(z)2})
-   echo -n "^[k$cmd[1]:t^[\\"
- }
-fi
+    #
+    # Prompt
+    #
+    PROMPT='%{$fg_bold[blue]%}${USER}@%m ${RESET}${WHITE}$ ${RESET}'
+    RPROMPT='${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${RESET}'
+
+    #
+    # Vi入力モードでPROMPTの色を変える
+    # http://memo.officebrook.net/20090226.html
+    function zle-line-init zle-keymap-select {
+      case $KEYMAP in
+        vicmd)
+        PROMPT="%{$fg_bold[cyan]%}${USER}@%m ${RESET}${WHITE}$ ${RESET}"
+        ;;
+        main|viins)
+        PROMPT="%{$fg_bold[blue]%}${USER}@%m ${RESET}${WHITE}$ ${RESET}"
+        ;;
+      esac
+      zle reset-prompt
+    }
+    zle -N zle-line-init
+    zle -N zle-keymap-select
+
+    # Show git branch when you are in git repository
+    # http://d.hatena.ne.jp/mollifier/20100906/p1
+
+    autoload -Uz add-zsh-hook
+    autoload -Uz vcs_info
+
+    zstyle ':vcs_info:*' enable git svn hg bzr
+    zstyle ':vcs_info:*' formats '(%s)-[%b]'
+    zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+    zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
+    zstyle ':vcs_info:bzr:*' use-simple true
+
+    autoload -Uz is-at-least
+    if is-at-least 4.3.10; then
+      # この check-for-changes が今回の設定するところ
+      zstyle ':vcs_info:git:*' check-for-changes true
+      zstyle ':vcs_info:git:*' stagedstr "+"    # 適当な文字列に変更する
+      zstyle ':vcs_info:git:*' unstagedstr "-"  # 適当の文字列に変更する
+      zstyle ':vcs_info:git:*' formats '(%s)-[%c%u%b]'
+      zstyle ':vcs_info:git:*' actionformats '(%s)-[%c%u%b|%a]'
+    fi
+
+    function _update_vcs_info_msg() {
+        psvar=()
+        LANG=en_US.UTF-8 vcs_info
+        psvar[2]=$(_git_not_pushed)
+        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+    }
+    add-zsh-hook precmd _update_vcs_info_msg
+
+    # show status of git pushed to HEAD in prompt
+    function _git_not_pushed()
+    {
+      if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
+        head="$(git rev-parse HEAD)"
+        for x in $(git rev-parse --remotes)
+        do
+          if [ "$head" = "$x" ]; then
+            return 0
+          fi
+        done
+        echo "|?"
+      fi
+      return 0
+    }
+
+    # git のブランチ名 *と作業状態* を zsh の右プロンプトに表示＋ status に応じて色もつけてみた - Yarukidenized:ヤルキデナイズド :
+    # http://d.hatena.ne.jp/uasi/20091025/1256458798
+    autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+
+    function rprompt-git-current-branch {
+      local name st color gitdir action pushed
+      if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
+              return
+      fi
+
+      name=`git rev-parse --abbrev-ref=loose HEAD 2> /dev/null`
+      if [[ -z $name ]]; then
+              return
+      fi
+
+      gitdir=`git rev-parse --git-dir 2> /dev/null`
+      action=`VCS_INFO_git_getaction "$gitdir"` && action="|$action"
+      pushed="`_git_not_pushed`"
+
+      st=`git status 2> /dev/null`
+      if [[ "$st" =~ "(?m)^nothing to" ]]; then
+        color=%F{green}
+      elif [[ "$st" =~ "(?m)^nothing added" ]]; then
+        color=%F{yellow}
+      elif [[ "$st" =~ "(?m)^# Untracked" ]]; then
+        color=%B%F{red}
+      else
+        color=%F{red}
+      fi
+
+      echo "[$color$name$action$pushed%f%b]"
+    }
+
+    # PCRE 互換の正規表現を使う
+    setopt re_match_pcre
+
+    RPROMPT='`rprompt-git-current-branch`${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)${WHITE}]${RESET}'
+
+    ;;
+esac
 
 #====================================================================
 # Completion
@@ -167,30 +288,6 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-esarch-forward-end
-
-#====================================================================
-# Color Settings
-#====================================================================
-autoload -U colors
-colors
-
-export CLICOLOR=1
-export LSCOLORS=dxfxcxdxbxegedabagacad
-export LS_COLORS='*.swp=00;44;37:*,v=5;34;93:*.vim=35:no=0:fi=0:di=32:ln=36:or=1;40:mi=1;40:pi=31:so=33:bd=44;37:cd=44;37:ex=35:*.jpg=1;32:*.jpeg=1;32:*.JPG=1;32:*.gif=1;32:*.png=1;32:*.jpeg=1;32:*.ppm=1;32:*.pgm=1;32:*.pbm=1;32:*.c=1;32:*.C=1;33:*.h=1;33:*.cc=1;33:*.awk=1;33:*.pl=1;33:*.gz=31:*.tar=31:*.zip=31:*.lha=1;31:*.lzh=1;31:*.arj=1;31:*.bz2=31:*.tgz=31:*.taz=1;31:*.html=36:*.htm=1;34:*.doc=1;34:*.txt=1;34:*.o=1;36:*.a=1;36'
-LS_OPT2='--color=auto'
-
-if [[ $UID == 0 ]]; then
- user_color="red";
-else
- user_color="green";
-fi
-
-host_color="magenta";
-path_color="white";
-date_color="yellow";
-arrobase_color="white";
-sep_color="cyan";
-
 
 #====================================================================
 # Set Option
