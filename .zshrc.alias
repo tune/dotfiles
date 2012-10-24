@@ -1,0 +1,31 @@
+#====================================================================
+# Setting Alias
+#====================================================================
+alias ls='ls -aF'
+alias sl=ls
+alias ll='ls -l'
+alias la='ls -a'
+alias lt='ls -trl'
+alias le=less
+alias bd='cd $OLDPWD'
+alias dc=cd
+alias clr='( setopt NULLGLOB; rm -f *~ .[^.]*~ ..*~ \#*\# )'
+alias grep='grep --color=always'
+alias j=jobs
+alias so="source ~/.zshrc"
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+
+#====================================================================
+# Setting Extension Alias
+# Usage:
+# % ps aux G apache
+#====================================================================
+alias -g G='| grep '
+alias -g L='| less '
+alias -g H='| head '
+alias -g T='| tail '
+alias -g V='| vi '

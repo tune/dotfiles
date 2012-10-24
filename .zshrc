@@ -53,38 +53,6 @@ export PAGER=less
 export EDITOR=vi
 
 #====================================================================
-# Setting Alias
-#====================================================================
-alias ls='ls -aF'
-alias sl=ls
-alias ll='ls -l'
-alias la='ls -a'
-alias lt='ls -trl'
-alias le=less
-alias bd='cd $OLDPWD'
-alias dc=cd
-alias clr='( setopt NULLGLOB; rm -f *~ .[^.]*~ ..*~ \#*\# )'
-alias grep='grep --color=always'
-alias j=jobs
-alias so="source ~/.zshrc"
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-alias .......='cd ../../../../../..'
-
-#====================================================================
-# Setting Extension Alias
-# Usage:
-# % ps aux G apache
-#====================================================================
-alias -g G='| grep '
-alias -g L='| less '
-alias -g H='| head '
-alias -g T='| tail '
-alias -g V='| vi '
-
-#====================================================================
 # Setting abbreviation
 # http://homepage1.nifty.com/blankspace/zsh/zsh.html
 #====================================================================
@@ -363,3 +331,28 @@ setopt glob_dots
 setopt long_list_jobs
 setopt equals
 #setopt xtrace
+
+## alias設定
+[ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
+
+case "${OSTYPE}" in
+# Cygwin(Windows)
+cygwin*)
+    # ここに設定
+    [ -f ~/dotfiles/.zshrc.cygwin ] && source ~/dotfiles/.zshrc.cygwin
+    ;;
+# Mac(Unix)
+darwin*)
+    # ここに設定
+    [ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
+    ;;
+# Linux
+linux*)
+    # ここに設定
+    [ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
+    ;;
+esac
+
+
+## local固有設定
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
