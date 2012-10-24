@@ -30,8 +30,10 @@ IGNORE_FILES=(
 
 for file in ${IGNORE_FILES[@]}
 do
-    echo "###########################################################" >> .global_ignore
-    echo "# From $file" >> .global_ignore
-    cat "git/gitignore/$file" >> .global_ignore
-    echo $'\n' >> .global_ignore
+    GLOBAL_IGNORE_FILE=$HOME/.global_ignore
+    
+    echo "###########################################################" >> $GLOBAL_IGNORE_FILE
+    echo "# From $file" >> $GLOBAL_IGNORE_FILE
+    cat "$HOME/dotfiles/git/gitignore/$file" >> $GLOBAL_IGNORE_FILE
+    echo $'\n' >> $GLOBAL_IGNORE_FILE
 done
