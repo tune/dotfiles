@@ -8,7 +8,7 @@
 
 # 設定ファイル
 
-* bash
+* inputrc
 * irb
 * git
 * screen

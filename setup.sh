@@ -2,11 +2,12 @@
 
 # Create symbolic link
 DOT_FILES=(
-	.gitconfig
-	.irbrc
-	.screenrc
-	.vimrc
-	.zshrc
+    .gitconfig
+    .inputrc
+    .irbrc
+    .screenrc
+    .vimrc
+    .zshrc
 )
 
 for file in ${DOT_FILES[@]}
@@ -17,15 +18,15 @@ done
 
 # Create .global_ignore for git
 IGNORE_FILES=(
-	Autotools.gitignore
-	C++.gitignore
-	C.gitignore
-	Ruby.gitignore
-	Global/Linux.gitignore
-	Global/SVN.gitignore
-	Global/VisualStudio.gitignore
-	Global/Windows.gitignore
-	Global/vim.gitignore
+    Autotools.gitignore
+    C++.gitignore
+    C.gitignore
+    Ruby.gitignore
+    Global/Linux.gitignore
+    Global/SVN.gitignore
+    Global/VisualStudio.gitignore
+    Global/Windows.gitignore
+    Global/vim.gitignore
 )
 
 for file in ${IGNORE_FILES[@]}
