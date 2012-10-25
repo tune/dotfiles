@@ -7,6 +7,7 @@ DOT_FILES=(
     .irbrc
     .screenrc
     .vimrc
+    .zshenv
     .zshrc
 )
 

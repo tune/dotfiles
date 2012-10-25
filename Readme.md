@@ -9,10 +9,13 @@ $ ./setup.sh
 
 # 設定ファイル
 
-* inputrc
-* irb
+* .inputrc
+* .irbrc
 * git
-* screen
-* vim
+    * .gitconfig
+    * .global_ignore
+* .screenrc
+* .vimrc
 * zsh
-
+    * .zshenv
+    * .zshrc
