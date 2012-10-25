@@ -7,9 +7,9 @@ $ git submodule update
 $ ./setup.sh
 ```
 
-vimを起動する前にVundleをインストールしておく。
+vimを起動する前にNeoBundleをインストールしておく。
 ```bash
-$ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 ```
 
 vimを起動したら`:BundleInstall`を実行する。
