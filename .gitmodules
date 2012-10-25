@@ -7,3 +7,6 @@
 [submodule "bin/git-tasukete"]
 	path = bin/git-tasukete
 	url = https://github.com/rosylilly/git-tasukete
+[submodule "bin/git-now"]
+	path = bin/git-now
+	url = https://github.com/toshi-kawanishi/git-now.git
