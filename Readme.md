@@ -31,3 +31,4 @@ vimを起動したら`:BundleInstall`を実行する。
 # ツールの入手先
 
 * [Ricty](https://github.com/yascentur/Ricty) : font
+
