@@ -3,7 +3,8 @@
 GEM_INSTALL_CMD = "gem install %s"
 
 INSTALL_GEMS = [
-	"bundler"
+	"bundler",
+	"git-issue",
 	"hub",
 	"milkode",
 	"sc2epub"
