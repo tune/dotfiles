@@ -27,3 +27,7 @@ vimを起動したら`:BundleInstall`を実行する。
 * zsh
     * .zshenv
     * .zshrc
+
+# ツールの入手先
+
+* [Ricty](https://github.com/yascentur/Ricty) : font
