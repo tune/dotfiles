@@ -5,6 +5,7 @@ GEM_INSTALL_CMD = "gem install %s"
 INSTALL_GEMS = [
 	"bundler",
 	"git-issue",
+	"jist",
 	"hub",
 	"milkode",
 	"sc2epub"
