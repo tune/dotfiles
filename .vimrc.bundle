@@ -2,7 +2,7 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/neobundle
+set rtp+=~/.vim/bundle/neobundle.vim
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
@@ -191,13 +191,13 @@ NeoBundle 'Shougo/vimproc'
   NeoBundle 'Lokaltog/vim-powerline'
 
   " 括弧を虹色にする
-  NeoBundle 'kjen/rainbow_parentheses'
+  NeoBundle 'kien/rainbow_parentheses.vim'
 
 " }}}
 
 " ColorSchema{{{{
   " color schema 256
-  NeoBundle 'altercation/solarized'
+  NeoBundle 'altercation/vim-colors-solarized'
 " }}}
 
 " Unite {{{{
