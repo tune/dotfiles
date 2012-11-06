@@ -13,7 +13,7 @@ vimを起動する前にNeoBundleをインストールしておく。
 git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 ```
 
-vimを起動したら`:BundleInstall`を実行する。
+vimを起動したら`:NeoBundleInstall`を実行する。
 
 
 # 設定ファイル
