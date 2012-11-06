@@ -198,6 +198,7 @@ NeoBundle 'Shougo/vimproc'
 " ColorSchema{{{{
   " color schema 256
   NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'cschlueter/vim-wombat'
 " }}}
 
 " Unite {{{{
