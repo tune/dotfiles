@@ -111,3 +111,8 @@ endif
 set iminsert=0
 set imsearch=0
 
+" 括弧の色付け表示
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces

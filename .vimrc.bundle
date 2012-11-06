@@ -77,8 +77,8 @@ NeoBundle 'gmarik/vundle'
   " 補完 neocomplcache.vim : 究極のVim的補完環境
   NeoBundle 'Shougo/neocomplcache'
 
-  " neocomplcacheのsinpet補完
-  NeoBundle 'Shougo/neocomplcache-snippets-complete'
+  " sinppet補完
+  NeoBundle 'Shougo/neosnippet'
 " }}}
 
 " Searching/Moving{{{
@@ -187,13 +187,13 @@ NeoBundle 'gmarik/vundle'
   " ステータスラインをカッコよくする
   NeoBundle 'Lokaltog/vim-powerline'
 
+  " 括弧を虹色にする
+  NeoBundle 'kjen/rainbow_parentheses'
+
 " }}}
 
 " ColorSchema{{{{
   " color schema 256
-  NeoBundle 'github.vim'
-  NeoBundle 'molokai.vim'
-  NeoBundle 'pyte.vim'
   NeoBundle 'altercation/solarized'
 " }}}
 
