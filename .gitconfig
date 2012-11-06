@@ -23,3 +23,8 @@
 	autosetuprebase = always
 [help]
 	autocorrect = 1
+[tig "bind"]
+	generic = g move-first-line
+	generic = G move-last-line
+	generic = ^F move-page-down
+	generic = ^B move-page-up
