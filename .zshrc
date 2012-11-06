@@ -141,45 +141,42 @@ case ${UID} in
       fi
       return 0
     }
-
-    # git のブランチ名 *と作業状態* を zsh の右プロンプトに表示＋ status に応じて色もつけてみた - Yarukidenized:ヤルキデナイズド :
-    # http://d.hatena.ne.jp/uasi/20091025/1256458798
+    
+    # ZshでGitのカレントブランチを右プロンプトに表示。
+    # コミット済みのきれいな状態だと緑色、未コミットの編集がある場合は赤色で表示される。
+    # http://qiita.com/items/325cffc755fc1ff91928
+    setopt prompt_subst
     autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
-
+    
     function rprompt-git-current-branch {
-      local name st color gitdir action pushed
-      if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
-              return
+      local name st color gitdir action
+      if [[ "$PWD" =~ '/¥.git(/.*)?$' ]]; then
+        return
       fi
-
-      name=`git rev-parse --abbrev-ref=loose HEAD 2> /dev/null`
+      name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
       if [[ -z $name ]]; then
-              return
+        return
       fi
-
+    
       gitdir=`git rev-parse --git-dir 2> /dev/null`
-      action=`VCS_INFO_git_getaction "$gitdir"` && action="|$action"
-      pushed="`_git_not_pushed`"
-
+      action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
+    
       st=`git status 2> /dev/null`
-      if [[ "$st" =~ "(?m)^nothing to" ]]; then
+      if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
         color=%F{green}
-      elif [[ "$st" =~ "(?m)^nothing added" ]]; then
+      elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
         color=%F{yellow}
-      elif [[ "$st" =~ "(?m)^# Untracked" ]]; then
+      elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
         color=%B%F{red}
       else
-        color=%F{red}
+         color=%F{red}
       fi
-
-      echo "[$color$name$action$pushed%f%b]"
+      echo "$color$name$action%f%b "
     }
-
-    # PCRE 互換の正規表現を使う
-    setopt re_match_pcre
-
-    RPROMPT='`rprompt-git-current-branch`${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)${WHITE}]${RESET}'
-
+    
+    # -------------- 使い方 ---------------- #
+    RPROMPT='`rprompt-git-current-branch`'
+    
     ;;
 esac
 
