@@ -1,21 +1,21 @@
-# viƒL[ƒoƒCƒ“ƒh
+# viã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰
 set editing-mode vi
 set keymap vi-insert
 
-# ƒ`ƒ‹ƒ_‚ğƒ^ƒu‚É‚æ‚è“WŠJ
+# ãƒãƒ«ãƒ€ã‚’ã‚¿ãƒ–ã«ã‚ˆã‚Šå±•é–‹
 set expand-tilde on
 
-# “ú–{ŒêŠÖŒW
+# æ—¥æœ¬èªé–¢ä¿‚
 set input-meta on
 set convert-meta off
 set output-meta on
 
-# ƒ^ƒu•âŠ®A‘å•¶š¬•¶š–³‹
+# ã‚¿ãƒ–è£œå®Œæ™‚ã€å¤§æ–‡å­—å°æ–‡å­—ç„¡è¦–
 set completion-ignore-case on
 
-# ƒRƒ“ƒ\[ƒ‹‚Ì‰¡•‚ğ‚ ‚Ó‚ê‚½‚Æ‚«©“®ƒXƒNƒ[ƒ‹
+# ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã®æ¨ªå¹…ã‚’ã‚ãµã‚ŒãŸã¨ãè‡ªå‹•ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
 set horizontal-scroll-mode on
 
-# ƒqƒXƒgƒŠ[•âŠ®‹@”\‚ğ Ctrl+N, Ctrl+P ‚ÉŠ„‚è“–‚Ä‚é
+# ãƒ’ã‚¹ãƒˆãƒªãƒ¼è£œå®Œæ©Ÿèƒ½ã‚’ Ctrl+N, Ctrl+P ã«å‰²ã‚Šå½“ã¦ã‚‹
 "\C-p": history-search-backward
 "\C-n": history-search-forward
