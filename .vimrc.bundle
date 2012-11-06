@@ -5,6 +5,9 @@ filetype off
 set rtp+=~/.vim/bundle/neobundle.vim
 call neobundle#rc(expand('~/.vim/bundle/'))
 
+" git://が使えないときは以下をコメントアウトする
+" let g:neobundle_default_git_protocol='https'
+
 " Let NeoBundle manage NeoBundle
 NeoBundle 'Shougo/neobundle.vim'
 
