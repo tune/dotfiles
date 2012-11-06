@@ -45,7 +45,7 @@ if exists('&ambiwidth')
  set ambiwidth=double
 endif
 
-set gfn=Ricty:h12:cSHIFTJIS
+set gfn=Ricty:h18
 
 " if has("gui_running")
 "	set lines=80 columns=120
