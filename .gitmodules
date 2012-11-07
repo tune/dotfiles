@@ -1,12 +1,16 @@
 [submodule "git/gitignore"]
 	path = git/gitignore
 	url = https://github.com/github/gitignore.git
+	ignore = dirty
 [submodule "zsh/zsh-completions"]
 	path = zsh/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
+	ignore = dirty
 [submodule "bin/git-tasukete"]
 	path = bin/git-tasukete
-	url = https://github.com/rosylilly/git-tasukete
+	url = https://github.com/rosylilly/git-tasukete.git
+	ignore = dirty
 [submodule "bin/git-now"]
 	path = bin/git-now
 	url = https://github.com/toshi-kawanishi/git-now.git
+	ignore = dirty
