@@ -3,6 +3,7 @@
 GEM_INSTALL_CMD = "gem install %s"
 
 INSTALL_GEMS = [
+	"cheat",
 	"bundler",
 	"git-issue",
 	"jist",
