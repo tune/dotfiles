@@ -37,4 +37,5 @@ $ make -f make_XXX.mak # XXXは実行環境によって適宜読み替え
 # ツールの入手先
 
 * [Ricty](https://github.com/yascentur/Ricty) : font
+* [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
 
