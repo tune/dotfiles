@@ -1,0 +1,33 @@
+" encoding
+" http://peacepipe.toshiville.com/2006/04/mac-6-vim-mac.html
+
+set encoding=utf-8
+
+if has('win32') && has('kaoriya')
+  set ambiwidth=auto
+else
+  set ambiwidth=double
+endif
+
+if has('iconv')
+  let s:enc_euc = 'euc-jp'
+  let s:enc_jis = 'iso-2022-jp'
+
+  if iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
+    let s:enc_euc = 'euc-jisx0213,euc-jp'
+    let s:enc_jis = 'iso-2022-jp-3'
+  endif
+
+  set fileencodings&
+  let &fileencodings = &fileencodings.','.s:enc_jis.',cp932,'.s:enc_euc
+
+  unlet s:enc_euc
+  unlet s:enc_jis
+endif
+
+if has('win32unix')
+  set termencoding=cp932
+elseif !has('macunix')
+  set termencoding=euc-jp
+endif
+
