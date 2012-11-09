@@ -10,22 +10,27 @@
 map <F2> <ESC>:bp<CR>
 map <F3> <ESC>:bn<CR>
 map <F4> <ESC>:bw<CR>
+
 " 表示行単位で行移動する
 nnoremap j gj
 nnoremap k gk
+
 "Escの2回押しでハイライト消去
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
 
 "--------------------------------------------------------------------
 " 検索関連
-"
+
 " 小文字による検索の場合は大文字/小文字を区別しない
 set ignorecase
+
 " 検索文字列に大文字が含まれている場合は区別して検索
 set smartcase
+
 " 最後まで検索したら戻る
 set wrapscan
+
 " 検索結果が画面の真ん中に来るようにする
 nmap n nzz
 nmap N Nzz
@@ -33,6 +38,7 @@ nmap * *zz
 nmap # #zz
 nmap g* g*zz
 nmap g# g#zz
+
 " インクリメンタルサーチを行う
 set incsearch
 
@@ -57,7 +63,6 @@ endif
 " 日本語入力
 set iminsert=0
 set imsearch=0
-
 
 " インサートモードでもバックスペースを有効にする
 set backspace=indent,eol,start
