@@ -64,3 +64,11 @@ highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 autocmd WinEnter * match WhitespaceEOL /\s\+$/
 
+" cygwin/mintty ターミナル上の vim で、モードに応じてカーソル形状を変える
+if has("win32unix")
+	let &t_ti.="\e[1 q"
+	let &t_SI.="\e[5 q"
+	let &t_EI.="\e[1 q"
+	let &t_te.="\e[0 q"
+endif
+
