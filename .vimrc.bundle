@@ -172,6 +172,12 @@ NeoBundle 'Shougo/vimproc'
   " vim Interface to Web API
   NeoBundle 'mattn/webapi-vim'
 
+  " gist
+  NeoBundle 'mattn/gist-vim'
+
+  " Qiita
+  NeoBundle 'mattn/qiita-vim'
+
   " cecutil.vim : 他のpluginのためのutillity1
   NeoBundle 'cecutil'
 
