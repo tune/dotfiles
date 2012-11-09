@@ -57,3 +57,8 @@ endif
 " 日本語入力
 set iminsert=0
 set imsearch=0
+
+
+" インサートモードでもバックスペースを有効にする
+set backspace=indent,eol,start
+
