@@ -49,6 +49,9 @@ NeoBundle 'Shougo/vimproc'
   " 括弧などの入力補助
   NeoBundle 'kana/vim-smartinput'
 
+  " indentを見やすくする
+  NeoBundle 'nathanaelkane/vim-indent-guides'
+
   " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
   NeoBundle 'textobj-user'
 
