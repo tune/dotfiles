@@ -46,6 +46,9 @@ NeoBundle 'Shougo/vimproc'
   " smartchr.vim : ==などの前後を整形
   NeoBundle 'smartchr'
 
+  " 括弧などの入力補助
+  NeoBundle 'kana/vim-smartinput'
+
   " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
   NeoBundle 'textobj-user'
 
