@@ -9,6 +9,7 @@ INSTALL_GEMS = [
 	"jist",
 	"hub",
 	"milkode",
+	"redcarpet",
 	"sc2epub"
 ]
 

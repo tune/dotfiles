@@ -53,3 +53,9 @@ function! g:ref_source_webdict_sites.wiki.filter(output)
   return join(split(a:output, "\n")[17 :], "\n")
 endfunction)
 
+" QuickRun
+let g:quickrun_config = {}
+let g:quickrun_config['markdown'] = {
+      \ 'outputter': 'browser'
+      \ }
+
