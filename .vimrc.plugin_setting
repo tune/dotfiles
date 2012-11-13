@@ -34,3 +34,22 @@ augroup indentguides
     autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
 augroup END
 
+" vim-ref
+let g:ref_source_webdict_sites = {
+\   'weblio': {
+\     'url': 'http://ejje.weblio.jp/content/%s',
+\     'keyword_encoding': 'utf-8',
+\     'cache': 1,
+\   },
+\   'wiki': {
+\     'url': 'http://ja.wikipedia.org/wiki/%s',
+\   },
+\ }
+let g:ref_source_webdict_sites.default = 'weblio'
+function! g:ref_source_webdict_sites.weblio.filter(output)
+  return join(split(a:output, "\n")[53 :], "\n")
+endfunction
+function! g:ref_source_webdict_sites.wiki.filter(output)
+  return join(split(a:output, "\n")[17 :], "\n")
+endfunction)
+
