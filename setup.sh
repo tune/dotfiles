@@ -3,6 +3,7 @@
 # Create symbolic link
 DOT_FILES=(
     .gitconfig
+    .gvimrc
     .inputrc
     .irbrc
     .screenrc
