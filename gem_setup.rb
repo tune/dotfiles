@@ -10,6 +10,7 @@ INSTALL_GEMS = [
 	"jist",
 	"hub",
 	"milkode",
+	"rdoc-view",
 	"redcarpet",
 	"sc2epub"
 ]
