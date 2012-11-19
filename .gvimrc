@@ -1,3 +1,6 @@
+" やはりWindowsのキーバインディングからは抜け出せない orz
+:source $VIMRUNTIME/mswin.vim
+
 " Hack #234: Vim外にいるときはVimを透けさせる
 " http://vim-users.jp/2011/10/hack234/
 augroup hack234
