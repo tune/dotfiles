@@ -190,6 +190,9 @@ autoload -U compinit; compinit
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                              /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
+# 大文字と小文字を区別しない
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 #====================================================================
 # Key Bind
 # http://aquahill.net/zsh/dot.zshrc
