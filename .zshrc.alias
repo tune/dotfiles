@@ -19,6 +19,9 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias .......='cd ../../../../../..'
 
+# Vimのマクロを使ってハイライト
+alias vless='/usr/share/vim/vim73/macros/less.sh'
+
 #====================================================================
 # Setting Extension Alias
 # Usage:
