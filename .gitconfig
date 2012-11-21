@@ -1,6 +1,8 @@
 [user]
 	name = Yuichi TSUNEMATSU
 	email = yuichi@tsunematsu.cc
+[include]
+	path = .gitconfig.local
 [color]
 	diff = auto
 	status = auto
