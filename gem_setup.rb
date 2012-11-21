@@ -6,6 +6,7 @@ INSTALL_GEMS = [
 	"awesome_print",
 	"cheat",
 	"bundler",
+	"git-browse-remote",
 	"git-issue",
 	"jist",
 	"hub",

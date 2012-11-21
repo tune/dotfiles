@@ -55,3 +55,11 @@ alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\
 	generic = ^B move-page-up
 [github]
 	user = tune
+# git-browse-remote
+# http://subtech.g.hatena.ne.jp/motemen/20120917/1347889804
+[web]
+	browser = google-chrome
+[browse-remote "github.com"]
+	top = https://{host}/{path}
+	ref = https://{host}/{path}/tree/{short_ref}
+	rev = https://{host}/{path}/commit/{commit}
