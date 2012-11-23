@@ -13,11 +13,11 @@ typeset -U path
 #            -: シンボリックリンク先のパスを評価。
 #            /: ディレクトリのみ残す。
 path=(
-       /bin(N-/)
-       /usr/bin(N-/)
        /usr/local/bin(N-/)
-       /usr/X11R6/bin(N-/)
        /opt/local/bin(N-/)
+       /usr/bin(N-/)
+       /bin(N-/)
+       /usr/X11R6/bin(N-/)
        $HOME/dotfiles/bin/*(N-/)
 )
 
