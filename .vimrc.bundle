@@ -19,26 +19,14 @@ NeoBundle 'Shougo/vimproc'
   " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
   NeoBundle 'scrooloose/nerdcommenter.git'
 
-  " -- でメソッドチェーン整形
-  NeoBundle 'c9s/cascading.vim'
-
   " visually indent guide
   NeoBundle 'nathanaelkane/vim-indent-guides'
-
-  " XMLとかHTMLとかの編集機能を強化する
-  NeoBundle 'xmledit'
 
   " Align : 高機能整形・桁揃えプラグイン
   NeoBundle 'Align'
 
-  " フィルタリングと整形
-  NeoBundle 'godlygeek/tabular'
-
   " マルチバイト対応の整形
   NeoBundle 'h1mesuke/vim-alignta'
-
-  " YankRing.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
-  NeoBundle 'YankRing.vim'
 
   " surround.vim : テキストを括弧で囲む／削除する
   NeoBundle 'tpope/vim-surround'
@@ -48,43 +36,6 @@ NeoBundle 'Shougo/vimproc'
 
   " 括弧などの入力補助
   NeoBundle 'kana/vim-smartinput'
-
-  " indentを見やすくする
-  NeoBundle 'nathanaelkane/vim-indent-guides'
-
-  " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
-  NeoBundle 'textobj-user'
-
-  " vim-textobj-syntax : syntax hilightされたものをtext-objectに
-  NeoBundle 'kana/vim-textobj-syntax.git'
-
-  " vim-textobj-plugins : いろんなものをtext-objectにする
-  NeoBundle 'thinca/vim-textobj-plugins.git'
-
-  " vim-textobj-lastpat : 最後に検索されたパターンをtext-objectに
-  NeoBundle 'kana/vim-textobj-lastpat.git'
-
-  " vim-textobj-indent : インデントされたものをtext-objectに
-  NeoBundle 'kana/vim-textobj-indent.git'
-
-  " vim-textobj-function : 関数の中身をtext-objectに
-  NeoBundle 'kana/vim-textobj-function.git'
-
-  " vim-textobj-fold : 折りたたまれたアレをtext-objectに
-  " NeoBundle 'kana/vim-textobj-fold.git'
-  NeoBundle 'textobj-rubyblock'
-
-  " vim-textobj-entire : buffer全体をtext-objectに
-  NeoBundle 'textobj-entire'
-
-  " 「foo」 or 【bar】などをtext-objectに
-  NeoBundle 'textobj-jabraces'
-
-  " <C-a>でtrue/false切替。他色々
-  NeoBundle 'taku-o/vim-toggle'
-
-  " Rubyでendを自動入力
-  NeoBundle 'tpope/vim-endwise'
 
 " }}}
 
@@ -145,12 +96,6 @@ NeoBundle 'Shougo/vimproc'
   " markdown
   NeoBundle 'tpope/vim-markdown'
 
-  " python
-  NeoBundle 'yuroyoro/vim-python'
-
-  " scala
-  NeoBundle 'yuroyoro/vim-scala'
-
   " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
   NeoBundle 'scrooloose/syntastic'
 " }}}
@@ -175,12 +120,6 @@ NeoBundle 'Shougo/vimproc'
   " vimshell : vimのshell
   NeoBundle 'Shougo/vimshell.git'
 
-  " vimproc : vimから非同期実行。vimshelleで必要
-  NeoBundle 'Shougo/vimproc.git'
-
-  " vim-altercmd : Ex command拡張
-  NeoBundle 'tyru/vim-altercmd'
-
   " vim Interface to Web API
   NeoBundle 'mattn/webapi-vim'
 
@@ -189,21 +128,6 @@ NeoBundle 'Shougo/vimproc'
 
   " Qiita
   NeoBundle 'mattn/qiita-vim'
-
-  " cecutil.vim : 他のpluginのためのutillity1
-  NeoBundle 'cecutil'
-
-  " urilib.vim : vim scriptからURLを扱うライブラリ
-  NeoBundle 'tyru/urilib.vim'
-
-  " utillity
-  NeoBundle 'L9'
-
-  " Buffer管理のLibrary
-  NeoBundle 'thinca/vim-openbuf'
-
-  " vimdoc 日本語
-  NeoBundle 'yuroyoro/vimdoc_ja'
 
   " vimからGit操作する
   NeoBundle 'tpope/vim-fugitive'
