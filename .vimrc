@@ -10,4 +10,4 @@ source ~/dotfiles/.vimrc.tab
 
 " プラグイン設定
 source ~/dotfiles/.vimrc.plugin_setting
-
+source ~/dotfiles/.vimrc.plugin_setting.neocomplcache
