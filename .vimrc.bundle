@@ -81,6 +81,9 @@ NeoBundle 'Shougo/vimproc'
 " }}}
 
 " Programming {{{
+  " Doxygenのコメント入力支援
+  NeoBundle 'mrtazz/DoxygenToolkit.vim'
+
   " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
   NeoBundle 'thinca/vim-quickrun'
 
