@@ -40,6 +40,9 @@ NeoBundle 'Shougo/vimproc'
   " Undoのビジュアル表示
   NeoBundle 'sjl/gundo.vim'
 
+  " バイナリエディタ化
+  NeoBundle 'Shougo/vinarise'
+
 " }}}
 
 " Completion {{{
