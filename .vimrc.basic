@@ -63,8 +63,14 @@ map <F4> <ESC>:bw<CR>
 nnoremap j gj
 nnoremap k gk
 
-"Escの2回押しでハイライト消去
+" Escの2回押しでハイライト消去
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
+
+" F11でpasteモードを切り替える
+imap <F11> <nop>
+set pastetoggle=<F11>
+" インサートモードから抜けるときにnopasteに戻す
+autocmd InsertLeave * set nopaste
 
 
 "--------------------------------------------------------------------
