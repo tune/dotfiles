@@ -7,6 +7,7 @@ DOT_FILES=(
     .inputrc
     .irbrc
     .screenrc
+    .tigrc
     .tmux.conf
     .vimrc
     .zshenv
