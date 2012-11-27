@@ -87,6 +87,9 @@ NeoBundle 'Shougo/vimproc'
 " }}}
 
 " Programming {{{
+  " .cと.hを:Aで交換
+  NeoBundle 'vim-scripts/a.vim'
+
   " Doxygenのコメント入力支援
   NeoBundle 'mrtazz/DoxygenToolkit.vim'
 
