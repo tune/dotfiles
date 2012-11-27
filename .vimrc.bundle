@@ -37,6 +37,9 @@ NeoBundle 'Shougo/vimproc'
   " 括弧などの入力補助
   NeoBundle 'kana/vim-smartinput'
 
+  " Undoのビジュアル表示
+  NeoBundle 'sjl/gundo.vim'
+
 " }}}
 
 " Completion {{{
