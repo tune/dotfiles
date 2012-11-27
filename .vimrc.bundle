@@ -141,6 +141,9 @@ NeoBundle 'Shougo/vimproc'
   " j/k移動を加速
   NeoBundle 'rhysd/accelerated-jk'
 
+  " ウィンドウリサイズ時に黄金比にする
+  NeoBundle 'roman/golden-ratio'
+
 " }}}
 
 " ColorSchema{{{{
