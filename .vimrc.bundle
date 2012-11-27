@@ -162,6 +162,9 @@ NeoBundle 'Shougo/vimproc'
   " プロジェクトのトップディレクトリに簡単に移動する
   NeoBundle 'airblade/vim-rooter'
 
+  " 日本語マニュアル
+  NeoBundle 'vim-jp/vimdoc-ja'
+
 " }}}
 
 " ColorSchema{{{{
