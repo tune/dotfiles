@@ -138,6 +138,9 @@ NeoBundle 'Shougo/vimproc'
   " 括弧を虹色にする
   NeoBundle 'kien/rainbow_parentheses.vim'
 
+  " j/k移動を加速
+  NeoBundle 'rhysd/accelerated-jk'
+
 " }}}
 
 " ColorSchema{{{{
