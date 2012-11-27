@@ -144,6 +144,9 @@ NeoBundle 'Shougo/vimproc'
   " vimからGit操作する
   NeoBundle 'tpope/vim-fugitive'
 
+  " gitk代替
+  NeoBundle 'gregsexton/gitv'
+
   " ステータスラインをカッコよくする
   NeoBundle 'Lokaltog/vim-powerline'
 
