@@ -144,6 +144,9 @@ NeoBundle 'Shougo/vimproc'
   " ウィンドウリサイズ時に黄金比にする
   NeoBundle 'roman/golden-ratio'
 
+  " プロジェクトのトップディレクトリに簡単に移動する
+  NeoBundle 'airblade/vim-rooter'
+
 " }}}
 
 " ColorSchema{{{{
