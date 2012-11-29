@@ -2,8 +2,14 @@
 
 "---------------------------------------------------------------------
 "基本設定
+" Vi互換モードをオフ
+set nocompatible
+
 " バックアップファイルを作らない
 set nobackup
+
+" タイプ途中のコマンドを画面最下行に表示
+set showcmd
 
 " 改行コードの自動認識
 set fileformats=unix,dos,mac
@@ -24,10 +30,14 @@ set imsearch=0
 " インサートモードでもバックスペースを有効にする
 set backspace=indent,eol,start
 
+" オートインデント
+set autoindent
+
 " テキスト整形オプション，マルチバイト系を追加
 set formatoptions=lmoq
 
-" ビープをならさない
+" ビープをならさない、ビジュアルベルも無効化する
+set visualbell
 set vb t_vb=
 
 " カーソルを行頭、行末で止まらないようにする
@@ -46,6 +56,12 @@ set clipboard=unnamed
 
 " 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする "
 " imap <C-p>  <ESC>"*pa
+
+" コマンドラインの高さを2行に
+set cmdheight=2
+
+" キーコードはすぐにタイムアウト。マッピングはタイムアウトしない
+set notimeout ttimeout ttimeoutlen=200
 
 
 "---------------------------------------------------------------------
