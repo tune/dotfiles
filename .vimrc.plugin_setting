@@ -74,3 +74,6 @@ let g:Powerline_mode_cs = '矩形選択'
 " gundo.vim
 nmap U :<C-u>GundoToggle<CR>
 
+" snippet
+let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
+

@@ -49,8 +49,11 @@ NeoBundle 'Shougo/vimproc'
   " 補完 neocomplcache.vim : 究極のVim的補完環境
   NeoBundle 'Shougo/neocomplcache'
 
-  " sinppet補完
+  " snippet補完
   NeoBundle 'Shougo/neosnippet'
+
+  " snippets集
+  NeoBundle 'honza/snipmate-snippets'
 " }}}
 
 " Searching/Moving{{{
