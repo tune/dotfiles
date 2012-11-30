@@ -105,7 +105,7 @@ augroup END
 
 hi clear CursorLine
 hi CursorLine gui=underline
-highlight CursorLine ctermbg=black guibg=black
+highlight CursorLine term=reverse cterm=reverse
 
 " コマンド実行中は再描画しない
 set lazyredraw
