@@ -54,6 +54,9 @@ NeoBundle 'Shougo/vimproc'
 
   " snippets集
   NeoBundle 'honza/snipmate-snippets'
+
+  " 英語の補完を行う
+  NeoBundle 'ujihisa/neco-look.git'
 " }}}
 
 " Searching/Moving{{{
