@@ -3,18 +3,43 @@
 "
 " シンタックスハイライトを有効にする
 if has("syntax")
-    syntax on
+	syntax on
 endif
-
-" 自動インデント
-set autoindent
 
 " 行番号表示
 set number
 
+" 自動インデント
+set autoindent
+set smartindent
+
 " タブ幅を設定する
+set cindent
 set tabstop=4
 set shiftwidth=4
+autocmd FileType apache     setlocal sw=4 sts=4 ts=4
+autocmd FileType c          setlocal sw=4 sts=4 ts=4
+autocmd FileType cpp        setlocal sw=4 sts=4 ts=4
+autocmd FileType cs         setlocal sw=4 sts=4 ts=4
+autocmd FileType css        setlocal sw=2 sts=2 ts=2
+autocmd FileType diff       setlocal sw=4 sts=4 ts=4
+autocmd FileType eruby      setlocal sw=4 sts=4 ts=4
+autocmd FileType html       setlocal sw=2 sts=2 ts=2
+autocmd FileType java       setlocal sw=4 sts=4 ts=4
+autocmd FileType javascript setlocal sw=2 sts=2 ts=2
+autocmd FileType perl       setlocal sw=4 sts=4 ts=4
+autocmd FileType php        setlocal sw=4 sts=4 ts=4
+autocmd FileType python     setlocal sw=4 sts=4 ts=4
+autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType haml       setlocal sw=2 sts=2 ts=2
+autocmd FileType sh         setlocal sw=4 sts=4 ts=4
+autocmd FileType sql        setlocal sw=4 sts=4 ts=4
+autocmd FileType vim        setlocal sw=2 sts=2 ts=2
+autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4
+autocmd FileType xml        setlocal sw=4 sts=4 ts=4
+autocmd FileType yaml       setlocal sw=2 sts=2 ts=2
+autocmd FileType zsh        setlocal sw=4 sts=4 ts=4
+autocmd FileType scala      setlocal sw=2 sts=2 ts=2
 
 " 不可視文字表示
 set list
@@ -54,7 +79,7 @@ set textwidth=0
 " UTF-8における矢印・記号の幅をwide characterにする
 " □とか○の文字があってもカーソル位置がずれないようにする
 if exists('&ambiwidth')
- set ambiwidth=double
+	set ambiwidth=double
 endif
 
 " フォント
@@ -82,3 +107,4 @@ if has("win32unix")
 	let &t_EI.="\e[1 q"
 	let &t_te.="\e[0 q"
 endif
+

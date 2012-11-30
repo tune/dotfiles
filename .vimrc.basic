@@ -30,9 +30,6 @@ set imsearch=0
 " インサートモードでもバックスペースを有効にする
 set backspace=indent,eol,start
 
-" オートインデント
-set autoindent
-
 " テキスト整形オプション，マルチバイト系を追加
 set formatoptions=lmoq
 
