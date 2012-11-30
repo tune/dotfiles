@@ -16,6 +16,10 @@ set fileformats=unix,dos,mac
 
 " スクロール時の余白確保
 set scrolloff=5
+" 左右スクロール時の視界を確保
+set sidescrolloff=16
+" 左右スクロールは一文字づつ行う
+set sidescroll=1
 
 " 他で書き換えられたら自動で読み直す
 set autoread
