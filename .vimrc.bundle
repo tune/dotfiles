@@ -11,10 +11,6 @@ let g:neobundle_default_git_protocol='https'
 " Let NeoBundle manage NeoBundle
 NeoBundle 'Shougo/neobundle.vim'
 
-" Recommended to install
-" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-NeoBundle 'Shougo/vimproc'
-
 " Edit {{{
   " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
   NeoBundle 'scrooloose/nerdcommenter.git'
@@ -93,14 +89,19 @@ NeoBundle 'Shougo/vimproc'
 " }}}
 
 " Programming {{{
+  " watchdogs.vimに必要なファイルたち
+  NeoBundle 'thinca/vim-quickrun' " 編集中のファイルを簡単に実行できる
+  " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+  NeoBundle 'Shougo/vimproc'
+  NeoBundle 'osyo-manga/shabadou.vim'
+  NeoBundle 'osyo-manga/vim-watchdogs'
+  NeoBundle 'jceb/vim-hier' " エラー箇所のハイライト
+
   " .cと.hを:Aで交換
   NeoBundle 'vim-scripts/a.vim'
 
   " Doxygenのコメント入力支援
   NeoBundle 'mrtazz/DoxygenToolkit.vim'
-
-  " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
-  NeoBundle 'thinca/vim-quickrun'
 
   " perldocやphpmanual等のリファレンスをvim上で見る
   NeoBundle 'thinca/vim-ref'
