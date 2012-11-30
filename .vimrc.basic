@@ -28,7 +28,7 @@ set autoread
 set noswapfile
 
 " 日本語入力
-set iminsert=0
+set iminsert=2 " インサートモードから抜けると自動的にIMEをオフに
 set imsearch=0
 
 " インサートモードでもバックスペースを有効にする
@@ -45,7 +45,7 @@ set vb t_vb=
 set whichwrap=b,s,h,l,<,>,[,]
 
 " OSのクリップボードを使用する
-set clipboard+=unnamed
+set clipboard+=unnamed,unnamedplus
 
 "ヤンクした文字は、システムのクリップボードに入れる"
 set clipboard=unnamed
