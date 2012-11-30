@@ -28,7 +28,7 @@ set autoread
 set noswapfile
 
 " 日本語入力
-set iminsert=2 " インサートモードから抜けると自動的にIMEをオフに
+set iminsert=0
 set imsearch=0
 
 " インサートモードでもバックスペースを有効にする
