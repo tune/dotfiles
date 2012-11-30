@@ -172,8 +172,9 @@ NeoBundle 'Shougo/vimproc'
 
 " ColorSchema{{{{
   " color schema 256
-  NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'tomasr/molokai'
   NeoBundle 'cschlueter/vim-wombat'
+  NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'nanotech/jellybeans.vim'
 " }}}
 
