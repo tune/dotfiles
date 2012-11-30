@@ -51,7 +51,7 @@ set clipboard=unnamed
 " set guioptions+=a
 " set ttymouse=xterm2
 
-" 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする "
+" 挿入モードでCtrl+pを押すとクリップボードの内容を貼り付けられるようにする "
 " imap <C-p>  <ESC>"*pa
 
 " コマンドラインの高さを2行に
@@ -77,7 +77,7 @@ nnoremap j gj
 nnoremap k gk
 
 " Escの2回押しでハイライト消去
-nmap <ESC><ESC> ;nohlsearch<CR><ESC>
+nnoremap <ESC><ESC> :nohlsearch<CR><ESC>
 
 " F11でpasteモードを切り替える
 imap <F11> <nop>
