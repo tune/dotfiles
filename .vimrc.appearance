@@ -6,6 +6,9 @@ if has("syntax")
 	syntax on
 endif
 
+" メッセージ表示欄を2行確保
+set cmdheight=2
+
 " 行番号表示
 set number
 
