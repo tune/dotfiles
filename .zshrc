@@ -193,6 +193,9 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 # 大文字と小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+# 今いるディレクトリを補完候補から外す
+zstyle ':completion:*' ignore-parents parent pwd ..
+
 #====================================================================
 # Key Bind
 # http://aquahill.net/zsh/dot.zshrc
