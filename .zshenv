@@ -72,3 +72,12 @@ export EDITOR=vim
 if ! type vim > /dev/null 2>&1; then
     alias vim=vi
 fi
+
+# 256色表示できているかの確認用
+function 256colortest() {
+    local code
+    for code in {0..255}; do
+        echo -e "\e[38;05;${code}m $code: Test"
+    done
+}
+
