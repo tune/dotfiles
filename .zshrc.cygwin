@@ -2,6 +2,8 @@
 
 alias open=cygstart
 
+hash -d desktop="$(cygpath --desktop)"
+
 # LESSのソースハイライト
 # source-highlightをインストールする必要あり
 export LESS='-gj10 --no-init --quit-if-one-screen --RAW-CONTROL-CHARS'
