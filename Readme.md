@@ -28,6 +28,7 @@ $ make -f make_XXX.mak # XXXは実行環境によって適宜読み替え
 * git
     * .gitconfig
     * .global_ignore
+* .pryrc
 * .screenrc
 * .tigrc
 * .tmux.conf

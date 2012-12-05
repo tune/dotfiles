@@ -6,6 +6,7 @@ DOT_FILES=(
     .gvimrc
     .inputrc
     .irbrc
+    .pryrc
     .screenrc
     .tigrc
     .tmux.conf
