@@ -12,6 +12,7 @@ INSTALL_GEMS = [
 	"hub",
 	"milkode",
   "pry",
+  "rcodetools",
 	"rdoc-view",
 	"redcarpet",
 	"sc2epub"
