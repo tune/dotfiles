@@ -196,6 +196,14 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 今いるディレクトリを補完候補から外す
 zstyle ':completion:*' ignore-parents parent pwd ..
 
+# known_hosts補完
+function print_known_hosts (){ 
+    if [ -f $HOME/.ssh/known_hosts ]; then
+        cat $HOME/.ssh/known_hosts | tr ',' ' ' | cut -d' ' -f1 
+    fi
+}
+_cache_hosts=($( print_known_hosts ))
+
 #====================================================================
 # Key Bind
 # http://aquahill.net/zsh/dot.zshrc
