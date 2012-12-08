@@ -334,6 +334,51 @@ setopt long_list_jobs
 setopt equals
 #setopt xtrace
 
+
+# コマンドラインからWeb検索
+# http://qiita.com/items/55651f44f91123f1881c
+# url: $1, delimiter: $2, prefix: $3, words: $4..
+function web_search {
+  local url=$1       && shift
+  local delimiter=$1 && shift
+  local prefix=$1    && shift
+  local query
+
+  while [ -n "$1" ]; do
+    if [ -n "$query" ]; then
+      query="${query}${delimiter}${prefix}$1"
+    else
+      query="${prefix}$1"
+    fi
+    shift
+  done
+
+  open "${url}${query}"
+}
+
+function qiita () {
+  web_search "http://qiita.com/search?utf8=✓&q=" "+" "" $*
+}
+
+function google () {
+  web_search "https://www.google.co.jp/search?&q=" "+" "" $*
+}
+
+# search in rurima
+function rurima () {
+  web_search "http://rurema.clear-code.com" "/" "query:" $*
+}
+
+# search in rubygems
+function gems () {
+  web_search "http://rubygems.org/search?utf8=✓&query=" "+" "" $*
+}
+
+# search in github
+function github () {
+  web_search "https://github.com/search?type=Code&q=" "+" "" $*
+}
+
 ## alias設定
 [ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
 
