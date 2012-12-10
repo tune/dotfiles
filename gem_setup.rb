@@ -12,6 +12,7 @@ INSTALL_GEMS = [
 	"hub",
 	"milkode",
   "pry",
+  "pry-coolline",
   "rcodetools",
 	"rdoc-view",
 	"redcarpet",
