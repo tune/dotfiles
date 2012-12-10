@@ -387,9 +387,13 @@ function github () {
   web_search "https://github.com/search?type=Code&q=" "+" "" $*
 }
 
-## alias設定
+# alias設定
 [ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
 
+# autojump
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+
+# OS毎の設定
 case "${OSTYPE}" in
 # Cygwin(Windows)
 cygwin*)

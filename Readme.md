@@ -41,9 +41,13 @@ $ make -f make_XXX.mak # XXXは実行環境によって適宜読み替え
 
 # ツールの入手先
 
+* font
+	* [Ricty](https://github.com/yascentur/Ricty) 
 * git
 	* [git-extras](https://github.com/visionmedia/git-extras)
 	* [legit](http://www.git-legit.org/)
-* [Ricty](https://github.com/yascentur/Ricty) : font
-* [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
+* zsh
+	* [autojump](https://github.com/joelthelion/autojump)
+* Utility
+	* [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
 
