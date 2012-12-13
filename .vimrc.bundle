@@ -180,6 +180,7 @@ NeoBundle 'Shougo/neobundle.vim'
   NeoBundle 'cschlueter/vim-wombat'
   NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'nanotech/jellybeans.vim'
+  NeoBundle 'vim-scripts/Colour-Sampler-Pack'
 " }}}
 
 " Unite {{{{
@@ -191,7 +192,7 @@ NeoBundle 'Shougo/neobundle.vim'
   NeoBundle 'thinca/vim-unite-history'
   NeoBundle 'tsukkee/unite-tag'
   NeoBundle 'choplin/unite-vim_hacks'
-
+  NeoBundle 'ujihisa/unite-colorscheme'
 " }}}
 "
 filetype plugin indent on
