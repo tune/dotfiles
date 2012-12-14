@@ -14,12 +14,6 @@ $ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 ```
 vimを起動したら`:NeoBundleInstall`を実行する。
 
-最後にvimprocのmakeをして終了。
-```bash
-$ cd ~/.vim/bundle/vimproc/
-$ make -f make_XXX.mak # XXXは実行環境によって適宜読み替え
-```
-
 
 # 設定ファイル
 
