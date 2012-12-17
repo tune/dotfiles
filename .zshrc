@@ -407,6 +407,14 @@ setopt equals
 #setopt xtrace
 
 
+#=============================
+# source zsh-syntax-highlighting
+#=============================
+if [ -f ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+
 # コマンドラインからWeb検索
 # http://qiita.com/items/55651f44f91123f1881c
 # url: $1, delimiter: $2, prefix: $3, words: $4..
