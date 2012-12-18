@@ -179,6 +179,8 @@ NeoBundle 'Shougo/neobundle.vim'
   " 日本語マニュアル
   NeoBundle 'vim-jp/vimdoc-ja'
 
+  " Vim Outliner of Markers
+  NeoBundle 'vim-scripts/VOoM'
 " }}}
 
 " ColorSchema{{{{
