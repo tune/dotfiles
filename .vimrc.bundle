@@ -116,6 +116,17 @@ NeoBundle 'Shougo/neobundle.vim'
   " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
   NeoBundle 'vim-ruby/vim-ruby'
 
+  " css3
+  NeoBundle 'hail2u/vim-css3-syntax'
+  
+  " html5
+  NeoBundle 'taichouchou2/html5.vim'
+  
+  " javascript
+  NeoBundle 'taichouchou2/vim-javascript' " jQuery syntax追加
+  
+  " coffee script
+  NeoBundle 'kchmck/vim-coffee-script'
 " }}}
 
 " Syntax {{{
