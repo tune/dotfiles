@@ -113,6 +113,16 @@ nmap g# g#zz
 " インクリメンタルサーチを行う
 set incsearch
 
+" grep設定
+" http://qiita.com/items/b97d673b6867dc572c81
+set grepprg=grep\ -rnIH\ --exclude-dir=.svn\ --exclude-dir=.git
+autocmd QuickfixCmdPost vimgrep copen
+autocmd QuickfixCmdPost grep copen
+
+" grep の書式を挿入
+nnoremap <expr> <Space>g ':vimgrep /\<' . expand('<cword>') . '\>/j **/*.' . expand('%:e')
+nnoremap <expr> <Space>G ':sil grep! ' . expand('<cword>') . ' *'
+
 
 "--------------------------------------------------------------------
 " その他設定
