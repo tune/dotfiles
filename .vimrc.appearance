@@ -3,7 +3,7 @@
 "
 " シンタックスハイライトを有効にする
 if has("syntax")
-	syntax on
+  syntax on
 endif
 
 " メッセージ表示欄を2行確保
@@ -37,7 +37,7 @@ autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType haml       setlocal sw=2 sts=2 ts=2
 autocmd FileType sh         setlocal sw=4 sts=4 ts=4
 autocmd FileType sql        setlocal sw=4 sts=4 ts=4
-autocmd FileType vim        setlocal sw=2 sts=2 ts=2
+autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
 autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4
 autocmd FileType xml        setlocal sw=4 sts=4 ts=4
 autocmd FileType yaml       setlocal sw=2 sts=2 ts=2
@@ -82,7 +82,7 @@ set textwidth=0
 " UTF-8における矢印・記号の幅をwide characterにする
 " □とか○の文字があってもカーソル位置がずれないようにする
 if exists('&ambiwidth')
-	set ambiwidth=double
+  set ambiwidth=double
 endif
 
 " フォント
@@ -115,9 +115,9 @@ set ttyfast
 
 " cygwin/mintty ターミナル上の vim で、モードに応じてカーソル形状を変える
 if has("win32unix")
-	let &t_ti.="\e[1 q"
-	let &t_SI.="\e[5 q"
-	let &t_EI.="\e[1 q"
-	let &t_te.="\e[0 q"
+  let &t_ti.="\e[1 q"
+  let &t_SI.="\e[5 q"
+  let &t_EI.="\e[1 q"
+  let &t_te.="\e[0 q"
 endif
 

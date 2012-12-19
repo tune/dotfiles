@@ -137,6 +137,6 @@ runtime macros/editexisting.vim
 
 " タブページの切り替えをCTRL+Tab SHIFT+Tabで行うように.
 if v:version >= 700
- nnoremap <C-Tab>   gt
- nnoremap <C-S-Tab> gT
+  nnoremap <C-Tab>   gt
+  nnoremap <C-S-Tab> gT
 endif

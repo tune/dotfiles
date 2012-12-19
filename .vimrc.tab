@@ -42,32 +42,32 @@ endfunction
 let g:use_Powerline_dividers = 1
 
 function! MyTabLabel(n)
-    let buflist = tabpagebuflist(a:n)
-    let winnr = tabpagewinnr(a:n)
-    let altbuf = bufname(buflist[winnr - 1])
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  let altbuf = bufname(buflist[winnr - 1])
 
-    " $HOME を消す
-    let altbuf = substitute(altbuf, expand('$HOME/'), '', '')
+  " $HOME を消す
+  let altbuf = substitute(altbuf, expand('$HOME/'), '', '')
 
-    " カレントタブ以外はパスを短くする
-    if tabpagenr() != a:n
-        let altbuf = substitute(altbuf, '^.*/', '', '')
-        let altbuf = substitute(altbuf, '^.\zs.*\ze\.[^.]\+$', '', '')
-    endif
+  " カレントタブ以外はパスを短くする
+  if tabpagenr() != a:n
+    let altbuf = substitute(altbuf, '^.*/', '', '')
+    let altbuf = substitute(altbuf, '^.\zs.*\ze\.[^.]\+$', '', '')
+  endif
 
-    " vim-powerline のグリフを使う
-    if g:use_Powerline_dividers
-        let dividers = g:Pl#Parser#Symbols[g:Powerline_symbols].dividers
-        let left_div = nr2char(get(dividers[3], 0, 124))
-        let right_div = nr2char(get(dividers[1], 0, 124))
-        let altbuf = left_div . altbuf . right_div
-    else
-        let altbuf = '|' . altbuf . '|'
-    endif
+  " vim-powerline のグリフを使う
+  if g:use_Powerline_dividers
+    let dividers = g:Pl#Parser#Symbols[g:Powerline_symbols].dividers
+    let left_div = nr2char(get(dividers[3], 0, 124))
+    let right_div = nr2char(get(dividers[1], 0, 124))
+    let altbuf = left_div . altbuf . right_div
+  else
+    let altbuf = '|' . altbuf . '|'
+  endif
 
-    " タブ番号を付加
-    let altbuf = a:n . ':' . altbuf
+  " タブ番号を付加
+  let altbuf = a:n . ':' . altbuf
 
-    return altbuf
+  return altbuf
 endfunction
 

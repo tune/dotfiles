@@ -26,20 +26,20 @@ let g:neocomplcache_max_list = 20
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'java' : $HOME.'/.vim/dict/java.dict',
-    \ 'c' : $HOME.'/.vim/dict/c.dict',
-    \ 'cpp' : $HOME.'/.vim/dict/cpp.dict',
-    \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
-    \ 'perl' : $HOME.'/.vim/dict/perl.dict',
-    \ 'php' : $HOME.'/.vim/dict/php.dict',
-    \ 'vm' : $HOME.'/.vim/dict/vim.dict'
-    \ }
+      \ 'default' : '',
+      \ 'vimshell' : $HOME.'/.vimshell_hist',
+      \ 'java' : $HOME.'/.vim/dict/java.dict',
+      \ 'c' : $HOME.'/.vim/dict/c.dict',
+      \ 'cpp' : $HOME.'/.vim/dict/cpp.dict',
+      \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
+      \ 'perl' : $HOME.'/.vim/dict/perl.dict',
+      \ 'php' : $HOME.'/.vim/dict/php.dict',
+      \ 'vm' : $HOME.'/.vim/dict/vim.dict'
+      \ }
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+  let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
@@ -100,30 +100,30 @@ let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 " autocmd FileType ruby let g:neocomplcache_source_disable = {
-  " \ 'include_complete' : 1,
-  " \ 'omni_complete' : 1
+" \ 'include_complete' : 1,
+" \ 'omni_complete' : 1
 " \ }
 " autocmd FileType ruby let g:neocomplcache_source_disable = {
-  " \ 'include_complete' : 1
+" \ 'include_complete' : 1
 " \ }
 
 "インクルードパスの指定
 let g:neocomplcache_include_paths = {
-  \ 'cpp'  : '.,/opt/local/include/gcc46/c++,/opt/local/include,/usr/include',
-  \ 'c'    : '.,/usr/include',
-  \ 'ruby' : '.,$HOME/.rvm/rubies/**/lib/ruby/1.8/',
-  \ }
+      \ 'cpp'  : '.,/opt/local/include/gcc46/c++,/opt/local/include,/usr/include',
+      \ 'c'    : '.,/usr/include',
+      \ 'ruby' : '.,$HOME/.rvm/rubies/**/lib/ruby/1.8/',
+      \ }
 "インクルード文のパターンを指定
 let g:neocomplcache_include_patterns = {
-  \ 'cpp' : '^\s*#\s*include',
-  \ 'ruby' : '^\s*require',
-  \ 'perl' : '^\s*use',
-  \ }
+      \ 'cpp' : '^\s*#\s*include',
+      \ 'ruby' : '^\s*require',
+      \ 'perl' : '^\s*use',
+      \ }
 "インクルード先のファイル名の解析パターン
 let g:neocomplcache_include_exprs = {
-  \ 'ruby' : substitute(v:fname,'::','/','g')
-  \ }
+      \ 'ruby' : substitute(v:fname,'::','/','g')
+      \ }
 " ファイルを探す際に、この値を末尾に追加したファイルも探す。
 let g:neocomplcache_include_suffixes = {
-  \ 'ruby' : '.rb',
-  \ }
+      \ 'ruby' : '.rb',
+      \ }

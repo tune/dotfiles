@@ -29,22 +29,22 @@ let g:indent_guides_guide_size = 1
 
 " indent guides
 augroup indentguides
-    autocmd!
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
+  autocmd!
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
 augroup END
 
 " vim-ref
 let g:ref_source_webdict_sites = {
-\   'weblio': {
-\     'url': 'http://ejje.weblio.jp/content/%s',
-\     'keyword_encoding': 'utf-8',
-\     'cache': 1,
-\   },
-\   'wiki': {
-\     'url': 'http://ja.wikipedia.org/wiki/%s',
-\   },
-\ }
+      \   'weblio': {
+      \     'url': 'http://ejje.weblio.jp/content/%s',
+      \     'keyword_encoding': 'utf-8',
+      \     'cache': 1,
+      \   },
+      \   'wiki': {
+      \     'url': 'http://ja.wikipedia.org/wiki/%s',
+      \   },
+      \ }
 let g:ref_source_webdict_sites.default = 'weblio'
 function! g:ref_source_webdict_sites.weblio.filter(output)
   return join(split(a:output, "\n")[53 :], "\n")
@@ -87,10 +87,10 @@ let g:watchdogs_check_CursorHold_enable = 1
 
 " hook/close_quickfix/enable_exit 1 で :WatchdogsRun 終了時に quickfix ウィンドウが閉じる
 let g:quickrun_config = {
-\   "watchdogs_checker/_" : {
-\       "hook/close_quickfix/enable_exit" : 1,
-\   },
-\}
+      \   "watchdogs_checker/_" : {
+      \       "hook/close_quickfix/enable_exit" : 1,
+      \   },
+      \}
 
 " watchdogs.vim の設定を追加
 call watchdogs#setup(g:quickrun_config)
