@@ -119,6 +119,9 @@ NeoBundle 'vim-ruby/vim-ruby'
 " Gemfile
 NeoBundle 'tobiassvn/vim-gemfile'
 
+" Slim
+NeoBundle 'bbommarito/vim-slim'
+
 " css3
 NeoBundle 'hail2u/vim-css3-syntax'
 
