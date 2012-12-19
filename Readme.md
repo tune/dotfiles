@@ -5,7 +5,8 @@ $ cd dotfiles
 $ git submodule init
 $ git submodule update
 $ ./setup.sh
-$ ./gem_setup.rb
+$ gem install bundler
+$ bundle install --system
 ```
 
 vimを起動する前にNeoBundleをインストールしておく。
