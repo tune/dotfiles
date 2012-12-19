@@ -121,6 +121,9 @@ NeoBundle 'vim-ruby/vim-ruby'
 " Gemfile
 NeoBundle 'tobiassvn/vim-gemfile'
 
+" RSpec
+NeoBundle 'skwp/vim-rspec'
+
 " Slim
 NeoBundle 'bbommarito/vim-slim'
 
