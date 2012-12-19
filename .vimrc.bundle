@@ -116,6 +116,9 @@ NeoBundle 'Shougo/neobundle.vim'
   " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
   NeoBundle 'vim-ruby/vim-ruby'
 
+  " Gemfile
+  NeoBundle 'tobiassvn/vim-gemfile'
+
   " css3
   NeoBundle 'hail2u/vim-css3-syntax'
   
