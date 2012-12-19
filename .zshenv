@@ -13,12 +13,12 @@ typeset -U path
 #            -: シンボリックリンク先のパスを評価。
 #            /: ディレクトリのみ残す。
 path=(
-       /usr/local/bin(N-/)
-       /opt/local/bin(N-/)
-       /usr/bin(N-/)
-       /bin(N-/)
-       /usr/X11R6/bin(N-/)
-       $HOME/dotfiles/bin/*(N-/)
+/usr/local/bin(N-/)
+/opt/local/bin(N-/)
+/usr/bin(N-/)
+/bin(N-/)
+/usr/X11R6/bin(N-/)
+$HOME/dotfiles/bin/*(N-/)
 )
 
 # sudo時のパスの設定
@@ -36,20 +36,20 @@ typeset -U sudo_path
 #            -: シンボリックリンク先のパスを評価。
 #            /: ディレクトリのみ残す。
 sudo_path=(
-       /sbin(N-/)
-       /usr/sbin(N-/)
-       /usr/local/sbin(N-/)
-       /opt/local/sbin(N-/)
+/sbin(N-/)
+/usr/sbin(N-/)
+/usr/local/sbin(N-/)
+/opt/local/sbin(N-/)
 )
 export MANPATH=/opt/local/man:$MANPATH
 
 # ページャの設定
 if type lv > /dev/null 2>&1; then
-    ## lvを優先する。
-    export PAGER="lv"
+	## lvを優先する。
+	export PAGER="lv"
 else
-    ## lvがなかったらlessを使う。
-    export PAGER="less"
+	## lvがなかったらlessを使う。
+	export PAGER="less"
 fi
 
 # lvの設定
@@ -59,8 +59,8 @@ fi
 export LV="-c -l"
 
 if [ "$PAGER" != "lv" ]; then
-    ## lvがなくてもlvでページャーを起動する。
-    alias lv="$PAGER"
+	## lvがなくてもlvでページャーを起動する。
+	alias lv="$PAGER"
 fi
 
 # lessの設定
@@ -70,14 +70,14 @@ export LESS="-R"
 export EDITOR=vim
 ## vimがなくてもvimでviを起動する。
 if ! type vim > /dev/null 2>&1; then
-    alias vim=vi
+	alias vim=vi
 fi
 
 # 256色表示できているかの確認用
 function 256colortest() {
-    local code
-    for code in {0..255}; do
-        echo -e "\e[38;05;${code}m $code: Test"
-    done
+local code
+for code in {0..255}; do
+	echo -e "\e[38;05;${code}m $code: Test"
+done
 }
 

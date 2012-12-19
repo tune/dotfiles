@@ -14,18 +14,18 @@ export HOSTNAME=$HOST
 #====================================================================
 typeset -A myabbrev
 myabbrev=(
-       "ll"    "| less"
-       "lg"    "| grep"
-       "|h"    "| head"
-       "|t"    "| tail"
-       "|v"    "| vi"
-       "tx"    "tar -xvzf"
+"ll"    "| less"
+"lg"    "| grep"
+"|h"    "| head"
+"|t"    "| tail"
+"|v"    "| vi"
+"tx"    "tar -xvzf"
 )
 my-expand-abbrev() {
-   local left prefix
-   left=$(echo -nE "$LBUFFER" | sed -e "s/[_a-zA-Z0-9]*$//")
-   prefix=$(echo -nE "$LBUFFER" | sed -e "s/.*[^_a-zA-Z0-9]\([_a-zA-Z0-9]*\)$/\1/")
-   LBUFFER=$left${myabbrev[$prefix]:-$prefix}" "
+	local left prefix
+	left=$(echo -nE "$LBUFFER" | sed -e "s/[_a-zA-Z0-9]*$//")
+	prefix=$(echo -nE "$LBUFFER" | sed -e "s/.*[^_a-zA-Z0-9]\([_a-zA-Z0-9]*\)$/\1/")
+	LBUFFER=$left${myabbrev[$prefix]:-$prefix}" "
 }
 zle -N my-expand-abbrev
 bindkey     " "         my-expand-abbrev
@@ -36,10 +36,10 @@ HARDCOPYFILE=/tmp/screen-hardcopy
 touch $HARDCOPYFILE
 
 dabbrev-complete () {
-       local reply lines=80 # 80行分
-       screen -X eval "hardcopy -h $HARDCOPYFILE"
-       reply=($(sed '/^$/d' $HARDCOPYFILE | sed '$ d' | tail -$lines))
-       compadd - "${reply[@]%[*/=@|]}"
+	local reply lines=80 # 80行分
+	screen -X eval "hardcopy -h $HARDCOPYFILE"
+	reply=($(sed '/^$/d' $HARDCOPYFILE | sed '$ d' | tail -$lines))
+	compadd - "${reply[@]%[*/=@|]}"
 }
 
 zle -C dabbrev-complete menu-complete dabbrev-complete
@@ -54,194 +54,194 @@ bindkey '^o^_' reverse-menu-complete
 autoload colors
 colors
 case ${UID} in
-0)
-    PROMPT="%B%{${fg[red]}%}%/#%{${reset_color}%}%b "
-    PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-    SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
-    ;;
-*)
-    # http://qiita.com/items/8d5a627d773758dd8078
-    # vcs_info 設定
-    
-    RPROMPT=""
-    
-    autoload -Uz vcs_info
-    autoload -Uz add-zsh-hook
-    autoload -Uz is-at-least
-    autoload -Uz colors
-    
-    # 以下の3つのメッセージをエクスポートする
-    #   $vcs_info_msg_0_ : 通常メッセージ用 (緑)
-    #   $vcs_info_msg_1_ : 警告メッセージ用 (黄色)
-    #   $vcs_info_msg_2_ : エラーメッセージ用 (赤)
-    zstyle ':vcs_info:*' max-exports 3
-    
-    zstyle ':vcs_info:*' enable git svn hg bzr
-    # 標準のフォーマット(git 以外で使用)
-    # misc(%m) は通常は空文字列に置き換えられる
-    zstyle ':vcs_info:*' formats '(%s)-[%b]'
-    zstyle ':vcs_info:*' actionformats '(%s)-[%b]' '%m' '<!%a>'
-    zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
-    zstyle ':vcs_info:bzr:*' use-simple true
-    
-    
-    if is-at-least 4.3.10; then
-        # git 用のフォーマット
-        # git のときはステージしているかどうかを表示
-        zstyle ':vcs_info:git:*' formats '(%s)-[%b]' '%c%u %m'
-        zstyle ':vcs_info:git:*' actionformats '(%s)-[%b]' '%c%u %m' '<!%a>'
-        zstyle ':vcs_info:git:*' check-for-changes true
-        zstyle ':vcs_info:git:*' stagedstr "+"    # %c で表示する文字列
-        zstyle ':vcs_info:git:*' unstagedstr "-"  # %u で表示する文字列
-    fi
-    
-    # hooks 設定
-    if is-at-least 4.3.11; then
-        # git のときはフック関数を設定する
-    
-        # formats '(%s)-[%b]' '%c%u %m' , actionformats '(%s)-[%b]' '%c%u %m' '<!%a>'
-        # のメッセージを設定する直前のフック関数
-        # 今回の設定の場合はformat の時は2つ, actionformats の時は3つメッセージがあるので
-        # 各関数が最大3回呼び出される。
-        zstyle ':vcs_info:git+set-message:*' hooks \
-                                                git-hook-begin \
-                                                git-untracked \
-                                                git-push-status \
-                                                git-nomerge-branch \
-                                                git-stash-count
-    
-        # フックの最初の関数
-        # git の作業コピーのあるディレクトリのみフック関数を呼び出すようにする
-        # (.git ディレクトリ内にいるときは呼び出さない)
-        # .git ディレクトリ内では git status --porcelain などがエラーになるため
-        function +vi-git-hook-begin() {
-            if [[ $(command git rev-parse --is-inside-work-tree 2> /dev/null) != 'true' ]]; then
-                # 0以外を返すとそれ以降のフック関数は呼び出されない
-                return 1
-            fi
-    
-            return 0
-        }
-    
-        # untracked フィアル表示
-        #
-        # untracked ファイル(バージョン管理されていないファイル)がある場合は
-        # unstaged (%u) に ? を表示
-        function +vi-git-untracked() {
-            # zstyle formats, actionformats の2番目のメッセージのみ対象にする
-            if [[ "$1" != "1" ]]; then
-                return 0
-            fi
-    
-            if command git status --porcelain 2> /dev/null \
-                | awk '{print $1}' \
-                | command grep -F '??' > /dev/null 2>&1 ; then
-    
-                # unstaged (%u) に追加
-                hook_com[unstaged]+='?'
-            fi
-        }
-    
-        # push していないコミットの件数表示
-        #
-        # リモートリポジトリに push していないコミットの件数を
-        # pN という形式で misc (%m) に表示する
-        function +vi-git-push-status() {
-            # zstyle formats, actionformats の2番目のメッセージのみ対象にする
-            if [[ "$1" != "1" ]]; then
-                return 0
-            fi
-    
-            if [[ "${hook_com[branch]}" != "master" ]]; then
-                # master ブランチでない場合は何もしない
-                return 0
-            fi
-    
-            # push していないコミット数を取得する
-            local ahead
-            ahead=$(command git rev-list origin/master..master 2>/dev/null \
-                | wc -l \
-                | tr -d ' ')
-    
-            if [[ "$ahead" -gt 0 ]]; then
-                # misc (%m) に追加
-                hook_com[misc]+="(p${ahead})"
-            fi
-        }
-    
-        # マージしていない件数表示
-        #
-        # master 以外のブランチにいる場合に、
-        # 現在のブランチ上でまだ master にマージしていないコミットの件数を
-        # (mN) という形式で misc (%m) に表示
-        function +vi-git-nomerge-branch() {
-            # zstyle formats, actionformats の2番目のメッセージのみ対象にする
-            if [[ "$1" != "1" ]]; then
-                return 0
-            fi
-    
-            if [[ "${hook_com[branch]}" == "master" ]]; then
-                # master ブランチの場合は何もしない
-                return 0
-            fi
-    
-            local nomerged
-            nomerged=$(command git rev-list master..${hook_com[branch]} 2>/dev/null | wc -l | tr -d ' ')
-    
-            if [[ "$nomerged" -gt 0 ]] ; then
-                # misc (%m) に追加
-                hook_com[misc]+="(m${nomerged})"
-            fi
-        }
-    
-    
-        # stash 件数表示
-        #
-        # stash している場合は :SN という形式で misc (%m) に表示
-        function +vi-git-stash-count() {
-            # zstyle formats, actionformats の2番目のメッセージのみ対象にする
-            if [[ "$1" != "1" ]]; then
-                return 0
-            fi
-    
-            local stash
-            stash=$(command git stash list 2>/dev/null | wc -l | tr -d ' ')
-            if [[ "${stash}" -gt 0 ]]; then
-                # misc (%m) に追加
-                hook_com[misc]+=":S${stash}"
-            fi
-        }
-    
-    fi
-    
-    function _update_vcs_info_msg() {
-        local -a messages
-        local prompt
-    
-        LANG=en_US.UTF-8 vcs_info
-    
-        if [[ -z ${vcs_info_msg_0_} ]]; then
-            # vcs_info で何も取得していない場合はプロンプトを表示しない
-            prompt=""
-        else
-            # vcs_info で情報を取得した場合
-            # $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
-            # それぞれ緑、黄色、赤で表示する
-            [[ -n "$vcs_info_msg_0_" ]] && messages+=( "%F{green}${vcs_info_msg_0_}%f" )
-            [[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}%f" )
-            [[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}%f" )
-    
-            # 間にスペースを入れて連結する
-            prompt="${(j: :)messages}"
-        fi
-    
-        RPROMPT="$prompt"
-    }
-    add-zsh-hook precmd _update_vcs_info_msg
+	0)
+		PROMPT="%B%{${fg[red]}%}%/#%{${reset_color}%}%b "
+		PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
+		SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
+		[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
+			PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
+		;;
+	*)
+		# http://qiita.com/items/8d5a627d773758dd8078
+		# vcs_info 設定
 
-    ;;
+		RPROMPT=""
+
+		autoload -Uz vcs_info
+		autoload -Uz add-zsh-hook
+		autoload -Uz is-at-least
+		autoload -Uz colors
+
+		# 以下の3つのメッセージをエクスポートする
+		#   $vcs_info_msg_0_ : 通常メッセージ用 (緑)
+		#   $vcs_info_msg_1_ : 警告メッセージ用 (黄色)
+		#   $vcs_info_msg_2_ : エラーメッセージ用 (赤)
+		zstyle ':vcs_info:*' max-exports 3
+
+		zstyle ':vcs_info:*' enable git svn hg bzr
+		# 標準のフォーマット(git 以外で使用)
+		# misc(%m) は通常は空文字列に置き換えられる
+		zstyle ':vcs_info:*' formats '(%s)-[%b]'
+		zstyle ':vcs_info:*' actionformats '(%s)-[%b]' '%m' '<!%a>'
+		zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
+		zstyle ':vcs_info:bzr:*' use-simple true
+
+
+		if is-at-least 4.3.10; then
+			# git 用のフォーマット
+			# git のときはステージしているかどうかを表示
+			zstyle ':vcs_info:git:*' formats '(%s)-[%b]' '%c%u %m'
+			zstyle ':vcs_info:git:*' actionformats '(%s)-[%b]' '%c%u %m' '<!%a>'
+			zstyle ':vcs_info:git:*' check-for-changes true
+			zstyle ':vcs_info:git:*' stagedstr "+"    # %c で表示する文字列
+			zstyle ':vcs_info:git:*' unstagedstr "-"  # %u で表示する文字列
+		fi
+
+		# hooks 設定
+		if is-at-least 4.3.11; then
+			# git のときはフック関数を設定する
+
+			# formats '(%s)-[%b]' '%c%u %m' , actionformats '(%s)-[%b]' '%c%u %m' '<!%a>'
+			# のメッセージを設定する直前のフック関数
+			# 今回の設定の場合はformat の時は2つ, actionformats の時は3つメッセージがあるので
+			# 各関数が最大3回呼び出される。
+			zstyle ':vcs_info:git+set-message:*' hooks \
+				git-hook-begin \
+				git-untracked \
+				git-push-status \
+				git-nomerge-branch \
+				git-stash-count
+
+			# フックの最初の関数
+			# git の作業コピーのあるディレクトリのみフック関数を呼び出すようにする
+			# (.git ディレクトリ内にいるときは呼び出さない)
+			# .git ディレクトリ内では git status --porcelain などがエラーになるため
+			function +vi-git-hook-begin() {
+			if [[ $(command git rev-parse --is-inside-work-tree 2> /dev/null) != 'true' ]]; then
+				# 0以外を返すとそれ以降のフック関数は呼び出されない
+				return 1
+			fi
+
+			return 0
+		}
+
+		# untracked フィアル表示
+		#
+		# untracked ファイル(バージョン管理されていないファイル)がある場合は
+		# unstaged (%u) に ? を表示
+		function +vi-git-untracked() {
+		# zstyle formats, actionformats の2番目のメッセージのみ対象にする
+		if [[ "$1" != "1" ]]; then
+			return 0
+		fi
+
+		if command git status --porcelain 2> /dev/null \
+			| awk '{print $1}' \
+			| command grep -F '??' > /dev/null 2>&1 ; then
+
+		# unstaged (%u) に追加
+		hook_com[unstaged]+='?'
+	fi
+}
+
+# push していないコミットの件数表示
+#
+# リモートリポジトリに push していないコミットの件数を
+# pN という形式で misc (%m) に表示する
+function +vi-git-push-status() {
+# zstyle formats, actionformats の2番目のメッセージのみ対象にする
+if [[ "$1" != "1" ]]; then
+	return 0
+fi
+
+if [[ "${hook_com[branch]}" != "master" ]]; then
+	# master ブランチでない場合は何もしない
+	return 0
+fi
+
+# push していないコミット数を取得する
+local ahead
+ahead=$(command git rev-list origin/master..master 2>/dev/null \
+	| wc -l \
+	| tr -d ' ')
+
+if [[ "$ahead" -gt 0 ]]; then
+	# misc (%m) に追加
+	hook_com[misc]+="(p${ahead})"
+fi
+		}
+
+		# マージしていない件数表示
+		#
+		# master 以外のブランチにいる場合に、
+		# 現在のブランチ上でまだ master にマージしていないコミットの件数を
+		# (mN) という形式で misc (%m) に表示
+		function +vi-git-nomerge-branch() {
+		# zstyle formats, actionformats の2番目のメッセージのみ対象にする
+		if [[ "$1" != "1" ]]; then
+			return 0
+		fi
+
+		if [[ "${hook_com[branch]}" == "master" ]]; then
+			# master ブランチの場合は何もしない
+			return 0
+		fi
+
+		local nomerged
+		nomerged=$(command git rev-list master..${hook_com[branch]} 2>/dev/null | wc -l | tr -d ' ')
+
+		if [[ "$nomerged" -gt 0 ]] ; then
+			# misc (%m) に追加
+			hook_com[misc]+="(m${nomerged})"
+		fi
+	}
+
+
+	# stash 件数表示
+	#
+	# stash している場合は :SN という形式で misc (%m) に表示
+	function +vi-git-stash-count() {
+	# zstyle formats, actionformats の2番目のメッセージのみ対象にする
+	if [[ "$1" != "1" ]]; then
+		return 0
+	fi
+
+	local stash
+	stash=$(command git stash list 2>/dev/null | wc -l | tr -d ' ')
+	if [[ "${stash}" -gt 0 ]]; then
+		# misc (%m) に追加
+		hook_com[misc]+=":S${stash}"
+	fi
+}
+
+	fi
+
+	function _update_vcs_info_msg() {
+	local -a messages
+	local prompt
+
+	LANG=en_US.UTF-8 vcs_info
+
+	if [[ -z ${vcs_info_msg_0_} ]]; then
+		# vcs_info で何も取得していない場合はプロンプトを表示しない
+		prompt=""
+	else
+		# vcs_info で情報を取得した場合
+		# $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
+		# それぞれ緑、黄色、赤で表示する
+		[[ -n "$vcs_info_msg_0_" ]] && messages+=( "%F{green}${vcs_info_msg_0_}%f" )
+		[[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}%f" )
+		[[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}%f" )
+
+		# 間にスペースを入れて連結する
+		prompt="${(j: :)messages}"
+	fi
+
+	RPROMPT="$prompt"
+}
+add-zsh-hook precmd _update_vcs_info_msg
+
+;;
 esac
 
 #====================================================================
@@ -252,7 +252,7 @@ fpath=(~/dotfiles/zsh/zsh-completions $fpath)
 
 autoload -U compinit; compinit
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-                             /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+	/usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
 # 大文字と小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -262,9 +262,9 @@ zstyle ':completion:*' ignore-parents parent pwd ..
 
 # known_hosts補完
 function print_known_hosts (){ 
-    if [ -f $HOME/.ssh/known_hosts ]; then
-        cat $HOME/.ssh/known_hosts | tr ',' ' ' | cut -d' ' -f1 
-    fi
+if [ -f $HOME/.ssh/known_hosts ]; then
+	cat $HOME/.ssh/known_hosts | tr ',' ' ' | cut -d' ' -f1 
+fi
 }
 _cache_hosts=($( print_known_hosts ))
 
@@ -277,11 +277,11 @@ zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 typeset -ga chpwd_functions
 
 if is-at-least 4.3.11; then
-  autoload -U chpwd_recent_dirs cdr
-  chpwd_functions+=chpwd_recent_dirs
-  zstyle ":chpwd:*" recent-dirs-max 500
-  zstyle ":chpwd:*" recent-dirs-default true
-  zstyle ":completion:*" recent-dirs-insert always
+	autoload -U chpwd_recent_dirs cdr
+	chpwd_functions+=chpwd_recent_dirs
+	zstyle ":chpwd:*" recent-dirs-max 500
+	zstyle ":chpwd:*" recent-dirs-default true
+	zstyle ":completion:*" recent-dirs-insert always
 fi
 
 #====================================================================
@@ -316,14 +316,14 @@ setopt extended_glob
 # http://subtech.g.hatena.ne.jp/cho45/20080617/1213629154
 typeset -A abbreviations
 abbreviations=(
-	"L"    "| $PAGER"
-	"G"    "| grep"
+"L"    "| $PAGER"
+"G"    "| grep"
 
-	"HEAD^"     "HEAD\\^"
-	"HEAD^^"    "HEAD\\^\\^"
-	"HEAD^^^"   "HEAD\\^\\^\\^"
-	"HEAD^^^^"  "HEAD\\^\\^\\^\\^\\^"
-	"HEAD^^^^^" "HEAD\\^\\^\\^\\^\\^"
+"HEAD^"     "HEAD\\^"
+"HEAD^^"    "HEAD\\^\\^"
+"HEAD^^^"   "HEAD\\^\\^\\^"
+"HEAD^^^^"  "HEAD\\^\\^\\^\\^\\^"
+"HEAD^^^^^" "HEAD\\^\\^\\^\\^\\^"
 )
 
 magic-abbrev-expand () {
@@ -427,7 +427,7 @@ setopt equals
 # source zsh-syntax-highlighting
 #=============================
 if [ -f ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 
@@ -435,44 +435,44 @@ fi
 # http://qiita.com/items/55651f44f91123f1881c
 # url: $1, delimiter: $2, prefix: $3, words: $4..
 function web_search {
-  local url=$1       && shift
-  local delimiter=$1 && shift
-  local prefix=$1    && shift
-  local query
+local url=$1       && shift
+local delimiter=$1 && shift
+local prefix=$1    && shift
+local query
 
-  while [ -n "$1" ]; do
-    if [ -n "$query" ]; then
-      query="${query}${delimiter}${prefix}$1"
-    else
-      query="${prefix}$1"
-    fi
-    shift
-  done
+while [ -n "$1" ]; do
+	if [ -n "$query" ]; then
+		query="${query}${delimiter}${prefix}$1"
+	else
+		query="${prefix}$1"
+	fi
+	shift
+done
 
-  open "${url}${query}"
+open "${url}${query}"
 }
 
 function qiita () {
-  web_search "http://qiita.com/search?utf8=✓&q=" "+" "" $*
+web_search "http://qiita.com/search?utf8=✓&q=" "+" "" $*
 }
 
 function google () {
-  web_search "https://www.google.co.jp/search?&q=" "+" "" $*
+web_search "https://www.google.co.jp/search?&q=" "+" "" $*
 }
 
 # search in rurima
 function rurima () {
-  web_search "http://rurema.clear-code.com" "/" "query:" $*
+web_search "http://rurema.clear-code.com" "/" "query:" $*
 }
 
 # search in rubygems
 function gems () {
-  web_search "http://rubygems.org/search?utf8=✓&query=" "+" "" $*
+web_search "http://rubygems.org/search?utf8=✓&query=" "+" "" $*
 }
 
 # search in github
 function github () {
-  web_search "https://github.com/search?type=Code&q=" "+" "" $*
+web_search "https://github.com/search?type=Code&q=" "+" "" $*
 }
 
 # alias設定
@@ -483,21 +483,21 @@ function github () {
 
 # OS毎の設定
 case "${OSTYPE}" in
-# Cygwin(Windows)
-cygwin*)
-    # ここに設定
-    [ -f ~/dotfiles/.zshrc.cygwin ] && source ~/dotfiles/.zshrc.cygwin
-    ;;
-# Mac(Unix)
-darwin*)
-    # ここに設定
-    [ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
-    ;;
-# Linux
-linux*)
-    # ここに設定
-    [ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
-    ;;
+	# Cygwin(Windows)
+	cygwin*)
+	# ここに設定
+	[ -f ~/dotfiles/.zshrc.cygwin ] && source ~/dotfiles/.zshrc.cygwin
+	;;
+	# Mac(Unix)
+	darwin*)
+	# ここに設定
+	[ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
+	;;
+	# Linux
+	linux*)
+	# ここに設定
+	[ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
+	;;
 esac
 
 
