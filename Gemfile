@@ -2,6 +2,7 @@ source :rubygems
 
 group :essential do
   gem "bundler"
+  gem "rake"
 end
 
 group :debug do
