@@ -31,6 +31,7 @@ end
 
 group :tool do
   gem "cheat"
+#  gem "cmdline-fu"
   gem "redcarpet"
   gem "sc2epub"
 end
