@@ -5,6 +5,11 @@ group :essential do
   gem "rake"
 end
 
+group :library do
+#  gem "libxml-ruby"
+#  gem "nokogiri"
+end
+
 group :debug do
   gem "awesome_print"
   gem "pry"
