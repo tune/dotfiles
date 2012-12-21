@@ -13,3 +13,6 @@
 [submodule "zsh/zsh-syntax-highlighting"]
 	path = zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "bin/gitignore-boilerplates"]
+	path = bin/gitignore-boilerplates
+	url = https://github.com/simonwhitaker/gitignore-boilerplates.git

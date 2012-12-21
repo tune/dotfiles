@@ -20,26 +20,11 @@ do
     ln -s $HOME/dotfiles/$file $HOME/$file
 done
 
+# refresh path setting
+source ~/.zshenv
+source ~/.zshrc
 
 # Create .global_ignore for git
-IGNORE_FILES=(
-    Autotools.gitignore
-    C++.gitignore
-    C.gitignore
-    Ruby.gitignore
-    Global/Linux.gitignore
-    Global/SVN.gitignore
-    Global/VisualStudio.gitignore
-    Global/Windows.gitignore
-    Global/vim.gitignore
-)
+gibo -u
+gibo Autotools C++ C Ruby Linux SVN VisualStudio Windows vim >> ~/.global_ignore
 
-for file in ${IGNORE_FILES[@]}
-do
-    GLOBAL_IGNORE_FILE=$HOME/.global_ignore
-    
-    echo "###########################################################" >> $GLOBAL_IGNORE_FILE
-    echo "# From $file" >> $GLOBAL_IGNORE_FILE
-    cat "$HOME/dotfiles/git/gitignore/$file" >> $GLOBAL_IGNORE_FILE
-    echo $'\n' >> $GLOBAL_IGNORE_FILE
-done

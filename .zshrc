@@ -14,13 +14,14 @@ export HOSTNAME=$HOST
 #====================================================================
 typeset -A myabbrev
 myabbrev=(
-"ll"    "| less"
-"lg"    "| grep"
-"|h"    "| head"
-"|t"    "| tail"
-"|v"    "| vi"
-"tx"    "tar -xvzf"
+	"ll"    "| less"
+	"lg"    "| grep"
+	"|h"    "| head"
+	"|t"    "| tail"
+	"|v"    "| vi"
+	"tx"    "tar -xvzf"
 )
+
 my-expand-abbrev() {
 	local left prefix
 	left=$(echo -nE "$LBUFFER" | sed -e "s/[_a-zA-Z0-9]*$//")
@@ -282,6 +283,11 @@ if is-at-least 4.3.11; then
 	zstyle ":chpwd:*" recent-dirs-max 500
 	zstyle ":chpwd:*" recent-dirs-default true
 	zstyle ":completion:*" recent-dirs-insert always
+fi
+
+# gitignore-boilerplates`
+if [ -f ~/dotfiles/bin/gitignore-boilerplates/gibo-completion.zsh ]; then
+	source ~/dotfiles/bin/gitignore-boilerplates/gibo-completion.zsh
 fi
 
 #====================================================================
