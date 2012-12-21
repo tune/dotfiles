@@ -22,3 +22,7 @@
 	path = bin/git-info
 	url = https://github.com/gitbits/git-info.git
 	ignore = dirty
+[submodule "bin/git-cp"]
+	path = bin/git-cp
+	url = https://github.com/gitbits/git-cp.git
+	ignore = dirty
