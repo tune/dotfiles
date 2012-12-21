@@ -67,11 +67,16 @@ fi
 ## -R: ANSIエスケープシーケンスのみ素通しする。
 ## 2012-09-04
 export LESS="-R"
+
+# エディタの設定
 export EDITOR=vim
 ## vimがなくてもvimでviを起動する。
 if ! type vim > /dev/null 2>&1; then
 	alias vim=vi
 fi
+# bundleで開くときのエディタもvim
+# http://qiita.com/items/ef78f8b0c9767fe60fcc
+export BUNDLER_EDITOR=vim
 
 # 256色表示できているかの確認用
 function 256colortest() {
