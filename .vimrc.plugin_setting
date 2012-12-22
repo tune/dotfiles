@@ -30,8 +30,12 @@ let g:indent_guides_guide_size = 1
 " indent guides
 augroup indentguides
   autocmd!
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
+  " 奇数インデントのカラー
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=gray
+  " 偶数インデントのカラー
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgray
+  " ハイライト色の変化の幅
+  let g:indent_guides_color_change_percent = 30
 augroup END
 
 " vim-ref
