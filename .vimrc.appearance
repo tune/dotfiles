@@ -108,6 +108,10 @@ hi clear CursorLine
 hi CursorLine gui=underline
 highlight CursorLine term=reverse cterm=reverse
 
+" Markdown編集中はイタリックフォントを使わない
+" http://qiita.com/items/58a68e4981c52b1872ad
+autocmd! FileType markdown hi! def link markdownItalic LineNr
+
 " コマンド実行中は再描画しない
 set lazyredraw
 
