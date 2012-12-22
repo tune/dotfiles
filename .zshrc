@@ -73,20 +73,20 @@ case ${UID} in
 		# Vi入力モードでPROMPTの色を変える
 		# http://memo.officebrook.net/20090226.html
 		function zle-line-init zle-keymap-select {
-		  case $KEYMAP in
-		    vicmd)
-		    PROMPT="%{$fg_bold[cyan]%}${USER}@%m ${RESET}${WHITE}${POH} ${RESET}"
-		    ;;
-		    main|viins)
-		    PROMPT="%{$fg_bold[blue]%}${USER}@%m ${RESET}${WHITE}${POH} ${RESET}"
-		    ;;
-		  esac
-		  zle reset-prompt
+			case $KEYMAP in
+				vicmd)
+				PROMPT="%{$fg_bold[cyan]%}${USER}@%m ${RESET}${WHITE}${POH} ${RESET}"
+				;;
+			main|viins)
+			PROMPT="%{$fg_bold[blue]%}${USER}@%m ${RESET}${WHITE}${POH} ${RESET}"
+			;;
+			esac
+			zle reset-prompt
 		}
 		zle -N zle-line-init
 		zle -N zle-keymap-select
 
-	# http://qiita.com/items/8d5a627d773758dd8078
+		# http://qiita.com/items/8d5a627d773758dd8078
 		# vcs_info 設定
 
 		RPROMPT=""
