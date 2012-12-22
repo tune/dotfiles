@@ -14,12 +14,12 @@ export HOSTNAME=$HOST
 #====================================================================
 typeset -A myabbrev
 myabbrev=(
-	"ll"    "| less"
-	"lg"    "| grep"
-	"|h"    "| head"
-	"|t"    "| tail"
-	"|v"    "| vi"
-	"tx"    "tar -xvzf"
+"ll"    "| less"
+"lg"    "| grep"
+"|h"    "| head"
+"|t"    "| tail"
+"|v"    "| vi"
+"tx"    "tar -xvzf"
 )
 
 my-expand-abbrev() {
@@ -63,7 +63,30 @@ case ${UID} in
 			PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
 		;;
 	*)
-		# http://qiita.com/items/8d5a627d773758dd8078
+		#
+		# Prompt
+		#
+		PROMPT='%{$fg_bold[blue]%}${USER}@%m ${RESET}${WHITE}${POH} ${RESET}'
+		RPROMPT='${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${RESET}'
+
+		#
+		# Vi入力モードでPROMPTの色を変える
+		# http://memo.officebrook.net/20090226.html
+		function zle-line-init zle-keymap-select {
+		  case $KEYMAP in
+		    vicmd)
+		    PROMPT="%{$fg_bold[cyan]%}${USER}@%m ${RESET}${WHITE}${POH} ${RESET}"
+		    ;;
+		    main|viins)
+		    PROMPT="%{$fg_bold[blue]%}${USER}@%m ${RESET}${WHITE}${POH} ${RESET}"
+		    ;;
+		  esac
+		  zle reset-prompt
+		}
+		zle -N zle-line-init
+		zle -N zle-keymap-select
+
+	# http://qiita.com/items/8d5a627d773758dd8078
 		# vcs_info 設定
 
 		RPROMPT=""
@@ -126,50 +149,50 @@ case ${UID} in
 			return 0
 		}
 
-		# untracked フィアル表示
+		# untracked ファイル表示
 		#
 		# untracked ファイル(バージョン管理されていないファイル)がある場合は
 		# unstaged (%u) に ? を表示
 		function +vi-git-untracked() {
-		# zstyle formats, actionformats の2番目のメッセージのみ対象にする
-		if [[ "$1" != "1" ]]; then
-			return 0
-		fi
+			# zstyle formats, actionformats の2番目のメッセージのみ対象にする
+			if [[ "$1" != "1" ]]; then
+				return 0
+			fi
 
-		if command git status --porcelain 2> /dev/null \
-			| awk '{print $1}' \
-			| command grep -F '??' > /dev/null 2>&1 ; then
+			if command git status --porcelain 2> /dev/null \
+				| awk '{print $1}' \
+				| command grep -F '??' > /dev/null 2>&1 ; then
 
-		# unstaged (%u) に追加
-		hook_com[unstaged]+='?'
-	fi
-}
+				# unstaged (%u) に追加
+				hook_com[unstaged]+='?'
+				fi
+		}
 
-# push していないコミットの件数表示
-#
-# リモートリポジトリに push していないコミットの件数を
-# pN という形式で misc (%m) に表示する
-function +vi-git-push-status() {
-# zstyle formats, actionformats の2番目のメッセージのみ対象にする
-if [[ "$1" != "1" ]]; then
-	return 0
-fi
+		# push していないコミットの件数表示
+		#
+		# リモートリポジトリに push していないコミットの件数を
+		# pN という形式で misc (%m) に表示する
+		function +vi-git-push-status() {
+			# zstyle formats, actionformats の2番目のメッセージのみ対象にする
+			if [[ "$1" != "1" ]]; then
+				return 0
+			fi
 
-if [[ "${hook_com[branch]}" != "master" ]]; then
-	# master ブランチでない場合は何もしない
-	return 0
-fi
+			if [[ "${hook_com[branch]}" != "master" ]]; then
+				# master ブランチでない場合は何もしない
+				return 0
+			fi
 
-# push していないコミット数を取得する
-local ahead
-ahead=$(command git rev-list origin/master..master 2>/dev/null \
-	| wc -l \
-	| tr -d ' ')
+			# push していないコミット数を取得する
+			local ahead
+			ahead=$(command git rev-list origin/master..master 2>/dev/null \
+				| wc -l \
+				| tr -d ' ')
 
-if [[ "$ahead" -gt 0 ]]; then
-	# misc (%m) に追加
-	hook_com[misc]+="(p${ahead})"
-fi
+			if [[ "$ahead" -gt 0 ]]; then
+				# misc (%m) に追加
+				hook_com[misc]+="(p${ahead})"
+			fi
 		}
 
 		# マージしていない件数表示
@@ -178,68 +201,68 @@ fi
 		# 現在のブランチ上でまだ master にマージしていないコミットの件数を
 		# (mN) という形式で misc (%m) に表示
 		function +vi-git-nomerge-branch() {
-		# zstyle formats, actionformats の2番目のメッセージのみ対象にする
-		if [[ "$1" != "1" ]]; then
-			return 0
-		fi
+			# zstyle formats, actionformats の2番目のメッセージのみ対象にする
+			if [[ "$1" != "1" ]]; then
+				return 0
+			fi
 
-		if [[ "${hook_com[branch]}" == "master" ]]; then
-			# master ブランチの場合は何もしない
-			return 0
-		fi
+			if [[ "${hook_com[branch]}" == "master" ]]; then
+				# master ブランチの場合は何もしない
+				return 0
+			fi
 
-		local nomerged
-		nomerged=$(command git rev-list master..${hook_com[branch]} 2>/dev/null | wc -l | tr -d ' ')
+			local nomerged
+			nomerged=$(command git rev-list master..${hook_com[branch]} 2>/dev/null | wc -l | tr -d ' ')
 
-		if [[ "$nomerged" -gt 0 ]] ; then
-			# misc (%m) に追加
-			hook_com[misc]+="(m${nomerged})"
-		fi
-	}
+			if [[ "$nomerged" -gt 0 ]] ; then
+				# misc (%m) に追加
+				hook_com[misc]+="(m${nomerged})"
+			fi
+		}
 
 
-	# stash 件数表示
-	#
-	# stash している場合は :SN という形式で misc (%m) に表示
-	function +vi-git-stash-count() {
-	# zstyle formats, actionformats の2番目のメッセージのみ対象にする
-	if [[ "$1" != "1" ]]; then
-		return 0
-	fi
+		# stash 件数表示
+		#
+		# stash している場合は :SN という形式で misc (%m) に表示
+		function +vi-git-stash-count() {
+			# zstyle formats, actionformats の2番目のメッセージのみ対象にする
+			if [[ "$1" != "1" ]]; then
+				return 0
+			fi
 
-	local stash
-	stash=$(command git stash list 2>/dev/null | wc -l | tr -d ' ')
-	if [[ "${stash}" -gt 0 ]]; then
-		# misc (%m) に追加
-		hook_com[misc]+=":S${stash}"
-	fi
-}
+			local stash
+			stash=$(command git stash list 2>/dev/null | wc -l | tr -d ' ')
+			if [[ "${stash}" -gt 0 ]]; then
+				# misc (%m) に追加
+				hook_com[misc]+=":S${stash}"
+			fi
+		}
 
 	fi
 
 	function _update_vcs_info_msg() {
-	local -a messages
-	local prompt
+		local -a messages
+		local prompt
 
-	LANG=en_US.UTF-8 vcs_info
+		LANG=en_US.UTF-8 vcs_info
 
-	if [[ -z ${vcs_info_msg_0_} ]]; then
-		# vcs_info で何も取得していない場合はプロンプトを表示しない
-		prompt=""
-	else
-		# vcs_info で情報を取得した場合
-		# $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
-		# それぞれ緑、黄色、赤で表示する
-		[[ -n "$vcs_info_msg_0_" ]] && messages+=( "%F{green}${vcs_info_msg_0_}%f" )
-		[[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}%f" )
-		[[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}%f" )
+		if [[ -z ${vcs_info_msg_0_} ]]; then
+			# vcs_info で何も取得していない場合はプロンプトを表示しない
+			prompt=""
+		else
+			# vcs_info で情報を取得した場合
+			# $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
+			# それぞれ緑、黄色、赤で表示する
+			[[ -n "$vcs_info_msg_0_" ]] && messages+=( "%F{green}${vcs_info_msg_0_}%f" )
+			[[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}%f" )
+			[[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}%f" )
 
-		# 間にスペースを入れて連結する
-		prompt="${(j: :)messages}"
-	fi
+			# 間にスペースを入れて連結する
+			prompt="${(j: :)messages}"
+		fi
 
-	RPROMPT="$prompt"
-}
+		RPROMPT="$prompt"
+	}
 add-zsh-hook precmd _update_vcs_info_msg
 
 ;;
@@ -248,7 +271,7 @@ esac
 #====================================================================
 # Completion
 #====================================================================
-# zsh-completionsを利用する Github => zsh-completions  
+# zsh-completionsを利用する Github => zsh-completions
 fpath=(~/dotfiles/zsh/zsh-completions $fpath)
 
 autoload -U compinit; compinit
