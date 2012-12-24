@@ -18,8 +18,12 @@ group :debug do
 end
 
 group :development do
+#  gem "guard"
+#  gem "guard-rspec"
+#  gem "guard-markdown"
 #  gem "milkode"
 #  gem "rdoc-view"
+#  gem "rspec"
 end
 
 group :scm do
