@@ -36,9 +36,6 @@ NeoBundle 'kana/vim-smartinput'
 " Undoのビジュアル表示
 NeoBundle 'sjl/gundo.vim'
 
-" バイナリエディタ化
-NeoBundle 'Shougo/vinarise'
-
 " display tags in a Windows
 NeoBundle 'majutsushi/tagbar'
 " }}}
