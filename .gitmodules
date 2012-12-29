@@ -30,3 +30,7 @@
 	path = bin/git-submodule-misc
 	url = https://github.com/gitbits/git-submodule-misc.git
 	ignore = dirty
+[submodule "bin/git-prune-remote-branch"]
+	path = bin/git-prune-remote-branch
+	url = https://github.com/kyanny/git-prune-remote-branch.git
+	ignore = dirty
