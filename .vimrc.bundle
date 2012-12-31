@@ -88,10 +88,7 @@ NeoBundle 'epmatsw/ag.vim'
 " }}}
 
 " Programming {{{
-" watchdogs.vimに必要なファイルたち
-NeoBundle 'thinca/vim-quickrun' " 編集中のファイルを簡単に実行できる
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimproc.git', {
+NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
       \     'cygwin'  : 'make -f make_cygwin.mak',
@@ -99,9 +96,13 @@ NeoBundle 'Shougo/vimproc.git', {
       \     'unix'    : 'make -f make_unix.mak',
       \    },
       \ }
+
+" 編集中のファイルを簡単に実行できる
+NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'osyo-manga/shabadou.vim'
-NeoBundle 'osyo-manga/vim-watchdogs'
-NeoBundle 'jceb/vim-hier' " エラー箇所のハイライト
+
+" エラー箇所のハイライト
+NeoBundle 'jceb/vim-hier'
 
 " .cと.hを:Aで交換
 NeoBundle 'vim-scripts/a.vim'
