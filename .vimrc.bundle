@@ -231,17 +231,25 @@ NeoBundle 'vim-scripts/Colour-Sampler-Pack'
 NeoBundle 'Shougo/unite.vim'
 
 NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'osyo-manga/unite-filetype'
+NeoBundle 'osyo-manga/unite-fold'
 NeoBundle 'ujihisa/unite-font'
 NeoBundle 'ujihisa/unite-gem'
+NeoBundle 'taka84u9/unite-git'
+NeoBundle 'sgur/unite-git_grep'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'ujihisa/unite-locate'
+NeoBundle 'rhysd/unite-mac-apps'
 NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'sgur/unite-qf'
+NeoBundle 'osyo-manga/unite-quickrun_config'
 NeoBundle 'basyura/unite-rails'
+NeoBundle 'rhysd/unite-ruby-require.vim'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'choplin/unite-vim_hacks'
 " }}}
-"
+
 filetype plugin indent on
 
 " Installation check.
