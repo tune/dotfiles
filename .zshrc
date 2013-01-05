@@ -54,6 +54,10 @@ bindkey '^o^_' reverse-menu-complete
 # colors enables us to idenfity color by $fg[red].
 autoload colors
 colors
+
+# LS_COLORSを設定しておく
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+
 case ${UID} in
 	0)
 		PROMPT="%B%{${fg[red]}%}%/#%{${reset_color}%}%b "
@@ -277,6 +281,9 @@ fpath=(~/dotfiles/zsh/zsh-completions $fpath)
 autoload -U compinit; compinit
 zstyle ':completion:*:default' menu select=2
 
+# ファイル補完候補に色を付ける
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 	/usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
@@ -326,6 +333,49 @@ if is-at-least 4.3.11; then
 	zstyle ":completion:*" recent-dirs-insert always
 fi
 
+# 補完に関するオプション
+# http://voidy21.hatenablog.jp/entry/20090902/1251918174
+setopt auto_param_slash      # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
+setopt mark_dirs             # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
+setopt list_types            # 補完候補一覧でファイルの種別を識別マーク表示 (訳注:ls -F の記号)
+setopt auto_menu             # 補完キー連打で順に補完候補を自動で補完
+setopt auto_param_keys       # カッコの対応などを自動的に補完
+setopt interactive_comments  # コマンドラインでも # 以降をコメントと見なす
+setopt magic_equal_subst     # コマンドラインの引数で --prefix=/usr などの = 以降でも補完できる
+
+setopt complete_in_word      # 語の途中でもカーソル位置で補完
+setopt always_last_prompt    # カーソル位置は保持したままファイル名一覧を順次その場で表示
+
+setopt print_eight_bit  #日本語ファイル名等8ビットを通す
+setopt extended_glob  # 拡張グロブで補完(~とか^とか。例えばless *.txt~memo.txt ならmemo.txt 以外の *.txt にマッチ)
+setopt globdots # 明確なドットの指定なしで.から始まるファイルをマッチ
+
+bindkey "^I" menu-complete   # 展開する前に補完候補を出させる(Ctrl-iで補完するようにする)
+
+# 範囲指定できるようにする
+# 例 : mkdir {1-3} で フォルダ1, 2, 3を作れる
+setopt brace_ccl
+
+# manの補完をセクション番号別に表示させる
+zstyle ':completion:*:manuals' separate-sections true
+
+# 変数の添字を補完する
+zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
+
+# apt-getとかdpkgコマンドをキャッシュを使って速くする
+zstyle ':completion:*' use-cache true
+
+# ディレクトリを切り替える時の色々な補完スタイル
+#あらかじめcdpathを適当に設定しておく
+cdpath=(~ ~/myapp/gae/ ~/myapp/gae/google_appengine/demos/)
+# カレントディレクトリに候補がない場合のみ cdpath 上のディレクトリを候補に出す
+zstyle ':completion:*:cd:*' tag-order local-directories path-directories
+#cd は親ディレクトリからカレントディレクトリを選択しないので表示させないようにする (例: cd ../<TAB>):
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
+# オブジェクトファイルとか中間ファイルとかはfileとして補完させない
+zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
+
 # gitignore-boilerplates`
 if [ -f ~/dotfiles/bin/gitignore-boilerplates/gibo-completion.zsh ]; then
 	source ~/dotfiles/bin/gitignore-boilerplates/gibo-completion.zsh
@@ -358,8 +408,7 @@ bindkey '^R' history-incremental-search-backward
 #====================================================================
 #Do not exit on end-of-file
 setopt ignore_eof
-#Extend Special Characters When Create New File
-setopt extended_glob
+
 # zshのextended_globとHEAD^を共存させる
 # http://subtech.g.hatena.ne.jp/cho45/20080617/1213629154
 typeset -A abbreviations
@@ -426,14 +475,11 @@ setopt hist_find_no_dups
 setopt inc_append_history
 
 #about Completion
-setopt always_last_prompt       #Defalut Enable
 setopt auto_list                #Default Enable
-setopt auto_menu
 setopt auto_remove_slash        #Dafault Enable
 
 #about List
 setopt list_packed
-setopt list_types
 
 #about BEEP
 setopt no_beep
@@ -455,16 +501,12 @@ setopt notify                   #Defalut Enable
 setopt check_jobs               #Default Enable
 
 #other settings
-setopt auto_param_keys
-setopt auto_param_slash
 setopt chase_links
 setopt notify
 setopt numeric_glob_sort
-setopt print_eightbit
 setopt prompt_subst
 setopt sh_word_split
 setopt sun_keyboard_hack
-setopt complete_in_word
 setopt glob_dots
 setopt long_list_jobs
 setopt equals
