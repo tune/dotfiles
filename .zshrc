@@ -275,6 +275,8 @@ esac
 fpath=(~/dotfiles/zsh/zsh-completions $fpath)
 
 autoload -U compinit; compinit
+zstyle ':completion:*:default' menu select=2
+
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 	/usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
