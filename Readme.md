@@ -34,6 +34,11 @@ vimを起動したら`:NeoBundleInstall`を実行する。
     * .zshenv
     * .zshrc
 
+## 固有の設定は下記の名称のローカルファイルを作ってそこに書く
+
+* .gitconfig.local
+* .vimrc.local
+
 # ツールの入手先
 
 * font
