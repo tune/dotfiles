@@ -192,6 +192,9 @@ NeoBundle 'mattn/gist-vim'
 " Qiita
 NeoBundle 'mattn/qiita-vim'
 
+" Redmine
+NeoBundle 'basyura/rmine.vim'
+
 " vimからGit操作する
 NeoBundle 'tpope/vim-fugitive'
 
