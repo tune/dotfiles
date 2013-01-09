@@ -34,3 +34,7 @@
 	path = bin/git-prune-remote-branch
 	url = https://github.com/kyanny/git-prune-remote-branch.git
 	ignore = dirty
+[submodule "zsh/z"]
+	path = zsh/z
+	url = https://github.com/rupa/z.git
+	ignore = dirty

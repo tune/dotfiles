@@ -571,8 +571,8 @@ web_search "https://github.com/search?type=Code&q=" "+" "" $*
 # alias設定
 [ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
 
-# autojump
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+# z
+[ -f ~/dotfiles/zsh/z/z.sh ] && source ~/dotfiles/zsh/z/zsh
 
 # OS毎の設定
 case "${OSTYPE}" in
@@ -593,6 +593,6 @@ case "${OSTYPE}" in
 	;;
 esac
 
-
 ## local固有設定
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
