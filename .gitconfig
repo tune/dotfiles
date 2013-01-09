@@ -26,9 +26,12 @@ alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\
 	ci = commit
 	co = checkout
 	d = diff
+	df = diff
 	dc = diff --cached
-	di = diff
-	dic = diff --cached
+	dw = diff -w
+	dn = diff --name-only
+	dwd = diff --word-diff
+	diffr = diff --color-words --word-diff-regex='\\w+|[^[:space:]]''
 	f = fetch --prune
 	fs = !git f && git su
 	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
