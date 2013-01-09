@@ -49,6 +49,7 @@ vimを起動したら`:NeoBundleInstall`を実行する。
 * zsh
 	* [autojump](https://github.com/joelthelion/autojump)
 * Utility
+	* [Mosh: the mobile shell](http://mosh.mit.edu/)
 	* [Pandoc](http://johnmacfarlane.net/pandoc/)
 	* [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
 
