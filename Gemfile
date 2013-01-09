@@ -12,6 +12,7 @@ end
 
 group :debug do
   gem "awesome_print"
+#  gem "interactive_editor"
   gem "pry"
   gem "pry-coolline"
   gem "rcodetools"
