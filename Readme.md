@@ -18,11 +18,12 @@ vimを起動したら`:NeoBundleInstall`を実行する。
 
 # 設定ファイル
 
-* .inputrc
-* .irbrc
 * git
     * .gitconfig
     * .global_ignore
+* .inputrc
+* .irbrc
+* .minttyrc
 * .pryrc
 * .screenrc
 * .tigrc

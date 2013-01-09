@@ -5,6 +5,7 @@ DOT_FILES=(
     .gitconfig
     .gvimrc
     .inputrc
+    .minttyrc
     .pryrc
     .tigrc
     .tmux.conf
