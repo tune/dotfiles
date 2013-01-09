@@ -38,6 +38,9 @@ NeoBundle 'sjl/gundo.vim'
 
 " display tags in a Windows
 NeoBundle 'majutsushi/tagbar'
+
+" sudoedit
+NeoBundle 'vim-scripts/SudoEdit.vim'
 " }}}
 
 " TextObj {{{
