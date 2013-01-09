@@ -381,6 +381,9 @@ if [ -f ~/dotfiles/bin/gitignore-boilerplates/gibo-completion.zsh ]; then
 	source ~/dotfiles/bin/gitignore-boilerplates/gibo-completion.zsh
 fi
 
+# mosh
+compdef mosh=ssh
+
 #====================================================================
 # Key Bind
 # http://aquahill.net/zsh/dot.zshrc
