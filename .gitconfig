@@ -23,11 +23,11 @@
 alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
 	b = branch -a
 	br = browse-remote
-	ci = commit 
+	ci = commit
 	co = checkout
 	d = diff
 	dc = diff --cached
-	di = diff   
+	di = diff
 	dic = diff --cached
 	f = fetch --prune
 	fs = !git f && git su
@@ -39,7 +39,7 @@ alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\
 	lp = log --oneline -n 20 -p
 	ls = log --stat --abbrev-commit -n 1 # display previous log
 	s = status --short --branch
-	st = status 
+	st = status
 	su = submodule update
 [merge]
 	tool = vimdiff
