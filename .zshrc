@@ -572,7 +572,7 @@ web_search "https://github.com/search?type=Code&q=" "+" "" $*
 [ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
 
 # z
-[ -f ~/dotfiles/zsh/z/z.sh ] && source ~/dotfiles/zsh/z/zsh
+[ -f ~/dotfiles/zsh/z/z.sh ] && source ~/dotfiles/zsh/z/z.sh
 
 # OS毎の設定
 case "${OSTYPE}" in
