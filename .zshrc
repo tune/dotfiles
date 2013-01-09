@@ -576,19 +576,16 @@ web_search "https://github.com/search?type=Code&q=" "+" "" $*
 
 # OS毎の設定
 case "${OSTYPE}" in
+cygwin*)
 	# Cygwin(Windows)
-	cygwin*)
-	# ここに設定
 	[ -f ~/dotfiles/.zshrc.cygwin ] && source ~/dotfiles/.zshrc.cygwin
 	;;
+darwin*)
 	# Mac(Unix)
-	darwin*)
-	# ここに設定
 	[ -f ~/dotfiles/.zshrc.osx ] && source ~/dotfiles/.zshrc.osx
 	;;
+linux*)
 	# Linux
-	linux*)
-	# ここに設定
 	[ -f ~/dotfiles/.zshrc.linux ] && source ~/dotfiles/.zshrc.linux
 	;;
 esac

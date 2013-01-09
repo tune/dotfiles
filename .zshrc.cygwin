@@ -1,6 +1,7 @@
 # setting for cygwin
 
 alias open=cygstart
+alias ls="ls -AF --color"
 
 hash -d desktop="$(cygpath --desktop)"
 
