@@ -574,6 +574,9 @@ web_search "https://github.com/search?type=Code&q=" "+" "" $*
 # z
 [ -f ~/dotfiles/zsh/z/z.sh ] && source ~/dotfiles/zsh/z/z.sh
 
+# zaw
+[ -f ~/dotfiles/zsh/zaw/zaw.sh ] && source ~/dotfiles/zsh/zaw/zaw.sh
+
 # OS毎の設定
 case "${OSTYPE}" in
 cygwin*)

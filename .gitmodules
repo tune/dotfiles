@@ -38,3 +38,7 @@
 	path = zsh/z
 	url = https://github.com/rupa/z.git
 	ignore = dirty
+[submodule "zsh/zaw"]
+	path = zsh/zaw
+	url = https://github.com/zsh-users/zaw.git
+	ignore = dirty
