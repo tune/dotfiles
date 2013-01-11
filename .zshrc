@@ -523,7 +523,6 @@ if [ -f ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; th
 	source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-
 # コマンドラインからWeb検索
 # http://qiita.com/items/55651f44f91123f1881c
 # url: $1, delimiter: $2, prefix: $3, words: $4..
@@ -567,6 +566,17 @@ web_search "http://rubygems.org/search?utf8=✓&query=" "+" "" $*
 function github () {
 web_search "https://github.com/search?type=Code&q=" "+" "" $*
 }
+
+# セパレータを引く
+# http://qiita.com/items/674b8582772747ede9c3
+function separate(){
+	echo -n $fg_bold[green]
+	for i in $(seq 1 $COLUMNS); do
+		echo -n '~'
+	done
+	echo -n $reset_color
+}
+
 
 # alias設定
 [ -f ~/dotfiles/.zshrc.alias ] && source ~/dotfiles/.zshrc.alias
