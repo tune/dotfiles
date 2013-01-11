@@ -567,6 +567,11 @@ function github () {
 web_search "https://github.com/search?type=Code&q=" "+" "" $*
 }
 
+# search in hatena bookmark
+function hatebu () {
+web_search "http://b.hatena.ne.jp/tune/search?q=" "+" "" $*
+}
+
 # セパレータを引く
 # http://qiita.com/items/674b8582772747ede9c3
 function separate(){
