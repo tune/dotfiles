@@ -25,6 +25,7 @@ group :development do
 #  gem "milkode"
 #  gem "rdoc-view"
 #  gem "rspec"
+#  gem "rtags"
 end
 
 group :scm do
