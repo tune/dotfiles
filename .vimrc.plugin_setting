@@ -84,3 +84,10 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
 " tagbar
 nmap <F8> :TagbarToggle<CR>
 
+" GNU GLOBAL (gtags.vim)
+map <C-g> :Gtags 
+map <C-h> :Gtags -f %<CR>
+map <C-j> :GtagsCursor<CR>
+map <C-n> :cn<CR>
+map <C-p> :cp<CR>
+

@@ -133,6 +133,9 @@ NeoBundle 'thinca/vim-ref'
 " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
 NeoBundle 'vim-ruby/vim-ruby'
 
+" GNU GLOBAL
+NeoBundle 'vim-scripts/gtags.vim'
+
 " Gemfile
 NeoBundle 'tobiassvn/vim-gemfile'
 
