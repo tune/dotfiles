@@ -207,6 +207,9 @@ NeoBundle 'tpope/vim-fugitive'
 " gitk代替
 NeoBundle 'gregsexton/gitv'
 
+" git シンタックスその他
+NeoBundle 'tpope/vim-git'
+
 " ステータスラインをカッコよくする
 NeoBundle 'Lokaltog/vim-powerline'
 
