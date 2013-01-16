@@ -514,6 +514,7 @@ setopt glob_dots
 setopt long_list_jobs
 setopt equals
 #setopt xtrace
+setopt transient_rprompt
 
 
 #=============================
