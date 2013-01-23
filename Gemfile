@@ -41,4 +41,5 @@ group :tool do
 #  gem "jenkins"
   gem "redcarpet"
   gem "sc2epub"
+#  gem 'yard'
 end
