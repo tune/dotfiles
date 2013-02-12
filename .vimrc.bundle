@@ -142,9 +142,6 @@ NeoBundle 'tobiassvn/vim-gemfile'
 " RSpec
 NeoBundle 'skwp/vim-rspec'
 
-" Slim
-NeoBundle 'bbommarito/vim-slim'
-
 " css3
 NeoBundle 'hail2u/vim-css3-syntax'
 
