@@ -40,6 +40,9 @@ vimを起動したら`:NeoBundleInstall`を実行する。
 * .gitconfig.local
 * .vimrc.local
 
+gitのユーザ名、プロキシ設定は~/.gitconfig.localに記述すること。1.7.10以降のバージョンのgitが必要。
+
+
 # ツールの入手先
 
 * font
