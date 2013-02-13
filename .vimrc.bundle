@@ -153,6 +153,9 @@ NeoBundle 'taichouchou2/vim-javascript' " jQuery syntax追加
 
 " coffee script
 NeoBundle 'kchmck/vim-coffee-script'
+
+" HybridText
+NeoBundle 'HybridText'
 " }}}
 
 " Syntax {{{
