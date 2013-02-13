@@ -48,6 +48,7 @@ gitのユーザ名、プロキシ設定は~/.gitconfig.localに記述するこ�
 * font
 	* [Ricty](https://github.com/yascentur/Ricty) 
 * git
+	* [tig](http://jonas.nitro.dk/tig/)
 	* [git-extras](https://github.com/visionmedia/git-extras)
 	* [legit](http://www.git-legit.org/)
 * zsh
