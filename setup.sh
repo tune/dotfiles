@@ -7,6 +7,7 @@ DOT_FILES=(
     .inputrc
     .minttyrc
     .pryrc
+    .screenrc
     .tigrc
     .tmux.conf
     .vimrc

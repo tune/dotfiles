@@ -1,0 +1,18 @@
+# ~tune/.screenrc
+# Yuichi TSUNEMATSU
+startup_message off
+autodetach on
+defscrollback 10000
+escape ^z^z
+shell zsh
+hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+
+# Change Ctrl + direction key
+# putty bindings
+bindkey "^[OC" next
+bindkey "^[OD" prev
+termcapinfo xterm "ks=\E[?1l\E:ku=\E[A:kd=\E[B:kl=\E[D:kr=\E[C:kh=\E[5~:kH=\E[F"
+
+# Show StarWars fortune message when idle
+idle 1200
+blankerprg fortune starwars
