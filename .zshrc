@@ -520,7 +520,7 @@ setopt transient_rprompt
 #=============================
 # source zsh-syntax-highlighting
 #=============================
-if [ -f ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+if is-at-least 4.3.9 && [ -f ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 	source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
