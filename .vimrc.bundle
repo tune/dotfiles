@@ -210,6 +210,9 @@ NeoBundle 'gregsexton/gitv'
 " git シンタックスその他
 NeoBundle 'tpope/vim-git'
 
+" 左側にgit diffの内容を表示
+NeoBundle 'airblade/vim-gitgutter'
+
 " ステータスラインをカッコよくする
 NeoBundle 'Lokaltog/vim-powerline'
 
