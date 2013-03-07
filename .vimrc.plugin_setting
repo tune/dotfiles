@@ -1,9 +1,3 @@
-" ChangeLog用の設定
-let g:changelog_timeformat = "%Y-%m-%d"
-let g:changelog_username = "tune  <Tsunematsu_Yuichi@cebm.canon.com.hk>"
-let g:changelog_new_date_format = "%d  %u\n\t* %c\n\n"
-let g:changelog_new_entry_format = "\t* %c"
-
 " 括弧の色付け表示
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
