@@ -44,6 +44,7 @@ alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\
 [merge]
 	tool = vimdiff
 	ff = false
+	log = true
 [branch]
 	autosetuprebase = always
 [help]
