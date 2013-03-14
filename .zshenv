@@ -19,6 +19,7 @@ path=(
 /bin(N-/)
 /usr/X11R6/bin(N-/)
 $HOME/dotfiles/bin/*(N-/)
+$HOME/bin(N-/)
 )
 
 # sudo時のパスの設定
