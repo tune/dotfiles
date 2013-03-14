@@ -7,6 +7,7 @@ export SAVEHIST=100000
 export USER=$USERNAME
 export HOSTNAME=$HOST
 
+export GIT_MERGE_AUTOEDIT=no
 
 #====================================================================
 # Setting abbreviation
