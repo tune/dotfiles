@@ -26,7 +26,6 @@ $HOME/bin(N-/)
 # -x: export SUDO_PATHも一緒に行う。
 # -T: SUDO_PATHとsudo_pathを連動する。
 typeset -xT SUDO_PATH sudo_path
-
 # 重複したパスを登録しない。
 typeset -U sudo_path
 
@@ -42,6 +41,15 @@ sudo_path=(
 /usr/local/sbin(N-/)
 /opt/local/sbin(N-/)
 )
+
+if [ $(id -u) -eq 0 ]; then
+	# rootの場合はsudo用のパスもPATHに加える。
+	path=($sudo_path $path)
+else
+	# 一般ユーザーの場合はsudo時にsudo用のパスをPATHに加える。
+	alias sudo="sudo env PATH=\"$SUDO_PATH:$PATH\""
+fi
+
 export MANPATH=/opt/local/man:$MANPATH
 
 # ページャの設定
