@@ -11,6 +11,8 @@
 	pager = less -r
 	excludesfile = ~/.global_ignore
 	quotepath = false
+[commit]
+	cleanup = whitespace
 [push]
 	default = upstream
 [grep]
