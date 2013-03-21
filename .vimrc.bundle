@@ -178,6 +178,9 @@ NeoBundle 'The-NERD-tree'
 
 " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
 NeoBundle 'vtreeexplorer'
+
+" Buffer切り替えをサムネイルで表示
+NeoBundle 'itchyny/thumbnail.vim'
 " }}}
 
 
