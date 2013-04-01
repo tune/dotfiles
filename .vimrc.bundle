@@ -54,6 +54,7 @@ NeoBundle 'rhysd/vim-textobj-continuous-line'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'thinca/vim-textobj-between'
 NeoBundle 'mattn/vim-textobj-url'
+NeoBundle 'terryma/vim-expand-region'
 " }}}
 
 
