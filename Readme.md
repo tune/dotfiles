@@ -56,6 +56,7 @@ gitのユーザ名、プロキシ設定は~/.gitconfig.localに記述するこ�
 	* [autojump](https://github.com/joelthelion/autojump)
 * Utility
 	* [GNU GLOBAL](http://savannah.gnu.org/projects/global/)
+	* [jq](http://stedolan.github.io/jq/)
 	* [Mosh: the mobile shell](http://mosh.mit.edu/)
 	* [Pandoc](http://johnmacfarlane.net/pandoc/)
 	* [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)

@@ -157,6 +157,9 @@ NeoBundle 'kchmck/vim-coffee-script'
 
 " HybridText
 NeoBundle 'HybridText'
+
+" JSON
+NeoBundle 'elzr/vim-json'
 " }}}
 
 " Syntax {{{
