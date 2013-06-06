@@ -11,3 +11,6 @@ augroup hack234
   endif
 augroup END
 
+" Ricty
+set guifont=Ricty\ 12
+
