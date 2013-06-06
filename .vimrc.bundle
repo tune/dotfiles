@@ -66,7 +66,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 
 " snippets集
-NeoBundle 'honza/snipmate-snippets'
+NeoBundle 'vim-scripts/snipmate-snippets'
 
 " 英語の補完を行う
 NeoBundle 'ujihisa/neco-look.git'
