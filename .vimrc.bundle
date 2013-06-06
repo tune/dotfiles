@@ -146,8 +146,17 @@ NeoBundle 'skwp/vim-rspec'
 " css3
 NeoBundle 'hail2u/vim-css3-syntax'
 
+" SCSS
+NeoBundle 'cakebaker/scss-syntax.vim'
+
+" Hexコードをその色で表示
+NeoBundle 'vim-scripts/css_color.vim'
+
 " html5
 NeoBundle 'taichouchou2/html5.vim'
+
+" html5 validator
+NeoBundle 'hokaccha/vim-html5validator'
 
 " javascript
 NeoBundle 'taichouchou2/vim-javascript' " jQuery syntax追加
