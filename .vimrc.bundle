@@ -169,6 +169,9 @@ NeoBundle 'HybridText'
 
 " JSON
 NeoBundle 'elzr/vim-json'
+
+" HAML
+NeoBundle 'tpope/vim-haml'
 " }}}
 
 " Syntax {{{
