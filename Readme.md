@@ -1,6 +1,6 @@
 # 使い方
 ```bash
-$ git clone git://github.com/tune/dotfiles.git
+$ git clone https://github.com/tune/dotfiles.git
 $ cd dotfiles
 $ git submodule init
 $ git submodule update
