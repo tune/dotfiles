@@ -89,6 +89,11 @@ set pastetoggle=<F11>
 " インサートモードから抜けるときにnopasteに戻す
 autocmd InsertLeave * set nopaste
 
+" 挿入モードで矢印キーが動くようにする
+nnoremap OA gi<Up>
+nnoremap OB gi<Down>
+nnoremap OC gi<Right>
+nnoremap OD gi<Left>
 
 "--------------------------------------------------------------------
 " 検索関連
