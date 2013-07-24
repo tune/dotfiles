@@ -1,9 +1,7 @@
 # 使い方
 ```bash
-$ git clone https://github.com/tune/dotfiles.git
+$ git clone --recursive https://github.com/tune/dotfiles.git
 $ cd dotfiles
-$ git submodule init
-$ git submodule update
 $ ./setup.sh
 $ gem install bundler
 $ bundle install --system
