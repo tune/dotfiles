@@ -233,7 +233,7 @@ NeoBundle 'tpope/vim-git'
 NeoBundle 'airblade/vim-gitgutter'
 
 " ステータスラインをカッコよくする
-NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'itchyny/lightline.vim'
 
 " 括弧を虹色にする
 NeoBundle 'kien/rainbow_parentheses.vim'
