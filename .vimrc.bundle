@@ -252,6 +252,9 @@ NeoBundle 'vim-jp/vimdoc-ja'
 
 " Vim Outliner of Markers
 NeoBundle 'vim-scripts/VOoM'
+
+" GVimのアイコン差し替え
+NeoBundle 'istepura/vim-toolbar-icons-silk'
 " }}}
 
 " ColorSchema{{{{
