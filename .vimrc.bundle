@@ -21,6 +21,9 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 " Align : 高機能整形・桁揃えプラグイン
 NeoBundle 'Align'
 
+" EditorConfig : プロジェクト毎のエディタ設定読み込み
+NeoBundle 'editorconfig/editorconfig-vim'
+
 " マルチバイト対応の整形
 NeoBundle 'h1mesuke/vim-alignta'
 
