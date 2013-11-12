@@ -63,7 +63,7 @@ NeoBundle 'terryma/vim-expand-region'
 
 " Completion {{{
 " 補完 neocomplcache.vim : 究極のVim的補完環境
-NeoBundle 'Shougo/neocomplcache'
+" NeoBundle 'Shougo/neocomplcache'
 
 " snippet補完
 " NeoBundle 'Shougo/neosnippet'

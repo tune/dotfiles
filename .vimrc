@@ -10,7 +10,7 @@ source ~/dotfiles/.vimrc.tab
 
 " プラグイン設定
 source ~/dotfiles/.vimrc.plugin_setting
-source ~/dotfiles/.vimrc.plugin_setting.neocomplcache
+" source ~/dotfiles/.vimrc.plugin_setting.neocomplcache
 
 " ローカル設定
 if filereadable(expand('~/.vimrc.local'))
