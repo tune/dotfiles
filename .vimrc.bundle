@@ -107,6 +107,8 @@ NeoBundle 'tyru/open-browser.vim'
 " the_silver_searcherで高速検索
 NeoBundle 'epmatsw/ag.vim'
 
+" anzu.vim : 現在の検索位置を画面に表示する
+NeoBundle 'osyo-manga/vim-anzu'
 " }}}
 
 " Programming {{{
