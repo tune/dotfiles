@@ -35,6 +35,7 @@ NeoBundle 'smartchr'
 
 " 括弧などの入力補助
 NeoBundle 'kana/vim-smartinput'
+NeoBundle "cohama/vim-smartinput-endwise"
 
 " Undoのビジュアル表示
 NeoBundle 'sjl/gundo.vim'

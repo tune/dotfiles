@@ -68,8 +68,11 @@ let g:lightline = {
 " gundo.vim
 nmap U :<C-u>GundoToggle<CR>
 
+" vim-smartinput
+call smartinput_endwise#define_default_rules()
+
 " snippet
-let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
+" let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -89,7 +92,6 @@ let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
 " gitv
-
 function! s:gitv_get_current_hash()
   return matchstr(getline('.'), '\[\zs.\{7\}\ze\]$')
 endfunction
