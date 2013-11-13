@@ -166,6 +166,7 @@ NeoBundle 'hokaccha/vim-html5validator'
 
 " javascript
 NeoBundle 'taichouchou2/vim-javascript' " jQuery syntax追加
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
 " coffee script
 NeoBundle 'kchmck/vim-coffee-script'
