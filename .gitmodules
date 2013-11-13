@@ -42,3 +42,6 @@
 	path = zsh/zaw
 	url = https://github.com/zsh-users/zaw.git
 	ignore = dirty
+[submodule "zsh/zsh-bundle-exec"]
+	path = zsh/zsh-bundle-exec
+	url = https://github.com/rhysd/zsh-bundle-exec

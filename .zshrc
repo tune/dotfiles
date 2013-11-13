@@ -525,6 +525,14 @@ if is-at-least 4.3.9 && [ -f ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-h
 	source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+#=============================
+# source zsh-bundle-exec
+#=============================
+if [ -f ~/dotfiles/zsh/zsh-bundle-exec/zsh-bundle-exec.zsh ]; then
+	source ~/dotfiles/zsh/zsh-bundle-exec/zsh-bundle-exec.zsh
+fi
+
+
 # コマンドラインからWeb検索
 # http://qiita.com/items/55651f44f91123f1881c
 # url: $1, delimiter: $2, prefix: $3, words: $4..
