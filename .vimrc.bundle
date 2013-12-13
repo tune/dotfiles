@@ -176,6 +176,7 @@ NeoBundle 'HybridText'
 
 " JSON
 NeoBundle 'elzr/vim-json'
+NeoBundle '5t111111/neat-json.vim'
 
 " HAML
 NeoBundle 'tpope/vim-haml'
