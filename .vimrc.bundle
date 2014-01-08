@@ -144,7 +144,7 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'vim-scripts/gtags.vim'
 
 " Gemfile
-NeoBundle 'tobiassvn/vim-gemfile'
+NeoBundle 'muz/vim-gemfile'
 
 " RSpec
 NeoBundle 'skwp/vim-rspec'
