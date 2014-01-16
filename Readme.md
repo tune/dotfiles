@@ -3,8 +3,6 @@
 $ git clone --recursive https://github.com/tune/dotfiles.git
 $ cd dotfiles
 $ ./setup.sh
-$ gem install bundler
-$ bundle install --system
 ```
 
 vimを起動する前にNeoBundleをインストールしておく。
