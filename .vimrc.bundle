@@ -45,6 +45,9 @@ NeoBundle 'majutsushi/tagbar'
 
 " sudoedit
 NeoBundle 'vim-scripts/SudoEdit.vim'
+
+" 行末の空白を強調表示
+NeoBundle 'bitc/vim-bad-whitespace'
 " }}}
 
 " TextObj {{{
