@@ -33,6 +33,7 @@
 	dwd = diff --word-diff
 	diffr = diff --color-words --word-diff-regex='\\w+|[^[:space:]]''
 	f = fetch --prune
+	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
 	fs = !git f && git su
 	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
 	info = remote show origin
