@@ -35,6 +35,7 @@
 	f = fetch --prune
 	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
 	fs = !git f && git su
+	grepall = !git grep
 	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
 	info = remote show origin
 	l = log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'
