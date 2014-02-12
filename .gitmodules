@@ -45,3 +45,4 @@
 [submodule "zsh/zsh-bundle-exec"]
 	path = zsh/zsh-bundle-exec
 	url = https://github.com/rhysd/zsh-bundle-exec
+	ignore = dirty
