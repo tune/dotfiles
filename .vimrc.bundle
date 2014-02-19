@@ -265,6 +265,9 @@ NeoBundle 'vim-scripts/VOoM'
 
 " GVimのアイコン差し替え
 NeoBundle 'istepura/vim-toolbar-icons-silk'
+
+" Markdown Preview
+NeoBundle 'kannokanno/previm'
 " }}}
 
 " ColorSchema{{{{

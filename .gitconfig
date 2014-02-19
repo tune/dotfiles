@@ -8,7 +8,7 @@
 	grep = auto
 [core]
 	editor = vim
-	pager = less -r
+	pager = "less -R"
 	excludesfile = ~/.global_ignore
 	quotepath = false
 [push]
