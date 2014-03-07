@@ -55,6 +55,8 @@
 	log = true
 [branch]
 	autosetuprebase = always
+[rebase]
+	autostash = true
 [help]
 	autocorrect = 1
 [github]
