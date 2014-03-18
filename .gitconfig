@@ -12,7 +12,7 @@
 	excludesfile = ~/.global_ignore
 	quotepath = false
 [push]
-	default = upstream
+	default = current
 [pull]
 	rebase = true
 [grep]
