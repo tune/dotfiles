@@ -142,6 +142,8 @@ NeoBundle 'thinca/vim-ref'
 
 " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
 NeoBundle 'vim-ruby/vim-ruby'
+" Rubyのローカル変数を強調表示
+NeoBundle 'todesking/ruby_hl_lvar.vim'
 
 " GNU GLOBAL
 NeoBundle 'vim-scripts/gtags.vim'
