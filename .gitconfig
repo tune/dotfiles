@@ -49,6 +49,7 @@
 	s = status --short --branch
 	st = status
 	su = submodule update
+	sync = !git checkout master && git pull origin master && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')')
 [merge]
 	tool = vimdiff
 	ff = false
