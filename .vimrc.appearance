@@ -112,6 +112,18 @@ highlight CursorLine term=reverse cterm=reverse
 " http://qiita.com/items/58a68e4981c52b1872ad
 autocmd! FileType markdown hi! def link markdownItalic LineNr
 
+" Markdown内部を色づけ
+let g:markdown_fenced_languages = [
+  \  'coffee',
+  \  'css',
+  \  'javascript',
+  \  'js=javascript',
+  \  'json=javascript',
+  \  'ruby',
+  \  'sass',
+  \  'xml',
+  \]
+
 " コマンド実行中は再描画しない
 set lazyredraw
 
