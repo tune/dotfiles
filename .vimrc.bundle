@@ -8,9 +8,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " git://が使えないときは以下をコメントアウトする
 let g:neobundle_default_git_protocol='https'
 
-" Let NeoBundle manage NeoBundle
-NeoBundle 'Shougo/neobundle.vim'
-
 " Edit {{{
 " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
 NeoBundle 'scrooloose/nerdcommenter.git'
