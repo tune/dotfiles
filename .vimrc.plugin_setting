@@ -140,3 +140,6 @@ function! s:my_gitv_settings()
   nnoremap <silent><buffer> t :<C-u>windo call <SID>toggle_git_folding()<CR>1<C-w>w
 endfunction
 
+" syntastic
+let g:syntastic_ruby_checkers = ['rubocop']
+
