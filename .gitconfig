@@ -11,6 +11,8 @@
 	pager = "less -R"
 	excludesfile = ~/.global_ignore
 	quotepath = false
+	preloadindex = true
+	fscache = true
 [push]
 	default = current
 [pull]
